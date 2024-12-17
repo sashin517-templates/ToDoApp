@@ -1,10 +1,8 @@
 # AURA Task Manager
 
-<h1 align="center">
-<img src="./front-end/src/assets/Vector.png" alt="Logo"/>
+![The Markdown logo](/front-end/src/assets/Vector.png)
 
-<img src="./front-end/src/assets/Task Manager.png" alt="Logo"/>
-</h1>
+![The Markdown logo](/front-end/src/assets/Task%20Manager.png)
 
 ## Project Overview
 
@@ -69,30 +67,38 @@ Task Manager & To-do List application is design to help you better manage your t
 
 1. Docker Containerization
 
-    - Isolate services for authentication, task management, and notifications.
-    - CI/CD Pipelines Automate testing, building, and deployment of the application.
+    * Isolate services for authentication, task management, and notifications.
+    * CI/CD Pipelines Automate testing, building, and deployment of the application.
 
 2. NGINX Load Balancing
 
-    - Distribute traffic efficiently across multiple servers.
+    * Distribute traffic efficiently across multiple servers.
 
 3. Kubernetes Deployment
 
-    - Deploy the application on Kubernetes (e.g., Minikube) for scalability and reliability.
+    * Deploy the application on Kubernetes (e.g., Minikube) for scalability and reliability.
 
-## Installation
+## Deployment
 
-- Select the file Directory, Then Open the Terminal Run the Following Command:
+### Local Deployment
+
+1. Clone the git repo 
+
+    ``
+
+### Docker & Kubernates Deployment
+
+* Select the file Directory, Then Open the Terminal Run the Following Command:
 
      `cd Your-file-location`
 
      `cd TODOAPP`
 
-- Create the Build the Front-End Dockerfile in Terminal:
+* Create the Build the Front-End Dockerfile in Terminal:
 
     `docker build -t todo-frond .`
 
-- Run the Builded Front-End Dockerfile in Terminal:
+* Run the Builded Front-End Dockerfile in Terminal:
 
     `docker run -todo-frond`
 
@@ -108,3 +114,9 @@ Task Manager & To-do List application is design to help you better manage your t
     8. Methara
     9. Adsaya
     10. Lahiru Dilshan
+
+## Tasks
+
+[x] Create the UI Design
+
+[ ] sdfds
