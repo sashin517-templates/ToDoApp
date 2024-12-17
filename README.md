@@ -1,8 +1,8 @@
 # AURA Task Manager
 
-![The Markdown logo](/front-end/src/assets/Vector.png)
+![The Markdown logo](/aura-app/public/Vector.png)
 
-![The Markdown logo](/front-end/src/assets/Task%20Manager.png)
+![The Markdown logo](/aura-app/public/Task%20Manager.png)
 
 ## Project Overview
 
