@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test": "vite test",
+    "test": "react-scripts test",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
