@@ -14,7 +14,7 @@
 
 - Create the Build the Front-End Dockerfile in Terminal:
 
-    `docker build -todo-frond`
+    `docker build -t todo-frond .`
 
 - Run the Builded Front-End Dockerfile in Terminal:
 
