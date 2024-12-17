@@ -1,17 +1,20 @@
-FROM node:18-alpine
+# Use an official node image as the base (Node version 20)
+FROM node:21-alpine
 
-WORKDIR /src/app
+# Set the working directory
+WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
+# Copy the package.json and package-lock.json files
+COPY package*.json .
+
+# Install the dependencies
 RUN npm install
 
-COPY . ./
+# Copy the rest of the application code
+COPY . .
 
-FROM nginx:alpine
+# Expose the application port
+EXPOSE 8000
 
-COPY --from=build /app/build /usr/share/nginx/html
-
-EXPOSE 5173
-
-CMD [ "nginx", "-g", "daemon off;"]
+# Start the application
+CMD ["npm", "run", "start"]
