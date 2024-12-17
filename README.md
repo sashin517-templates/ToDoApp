@@ -82,41 +82,105 @@ Task Manager & To-do List application is design to help you better manage your t
 
 ### Local Deployment
 
-1. Clone the git repo 
+1. Clone the git repository.
 
-    ``
+    ```bash
+    git clone https://github.com/Sashin517/ToDoApp.git
+    ```
+
+2. Set the file directory.
+
+    ```bash
+    cd Your-File-Directory
+    ```
+
+3. Install the Node Module in file directory.
+
+    ```bash
+    npm install 
+    ```
+
+4. Run the Application following Code:
+
+    ```bash
+    npm start
+    ```
+
+5. Congradulation, You will deploy the application in `localhost:5173`.
 
 ### Docker & Kubernates Deployment
 
-* Select the file Directory, Then Open the Terminal Run the Following Command:
+#### *Docker Deployment*
 
-     `cd Your-file-location`
+1. Select the file Directory, Then Open the Terminal Run the Following Command:
 
-     `cd TODOAPP`
+     ```bash
+     cd Your-file-location
+     cd TODOAPP
+     ```
 
-* Create the Build the Front-End Dockerfile in Terminal:
+2. Create the Build the Front-End Dockerfile in Terminal:
 
-    `docker build -t todo-frond .`
+    ```bash
+    docker build -t todo-front-app .
+    ```
 
-* Run the Builded Front-End Dockerfile in Terminal:
+3. Run the Builded Front-End Dockerfile in Terminal:
 
-    `docker run -todo-frond`
+    ```bash
+    docker run -todo-frond
+    ```
+
+#### *Kubernates Deployment*
+
+1. Select the file Directory, Then Open the Terminal Run the Following Command:
+
+     ```bash
+     cd Your-file-location
+     cd TODOAPP
+     ```
+
+2. Start the kubernates service in local computer:
+
+    ```bash
+    minikube start
+    ```
+
+3. After, Deploy the `deployment.yaml` file using this command:
+
+    ```bash
+    kubectl apply -f deployment.yaml
+    ```
+
+4. Enter the this `localhost:5173` your browser linkbar
+
+    *Click this link*  [https://localhost:5173](https://localhost:5173)
+
+5. Boom, Your Application Deploying in Kubernates in Successfully.
 
 ## Collabarator
 
-    1. Deemantha Rathnayake
-    2. Adithya Rusith
-    3. Chamika 
-    4. Chamathvi
-    5. Dewni
-    6. Tharuka
-    7. Pramodi
-    8. Methara
-    9. Adsaya
-    10. Lahiru Dilshan
+1. Deemantha Rathnayake
+2. Adithya Rusith
+3. Chamika
+4. Chamathvi
+5. Dewni
+6. Tharuka
+7. Pramodi
+8. Methara
+9. Adsaya
+10. Lahiru Dilshan
 
 ## Tasks
 
 [x] Create the UI Design
 
-[ ] sdfds
+[x] Docker File Configuration
+
+[x] Kubernates Deployment file Configuration
+
+[] Application Development
+
+[] CI/CD Pipeline Tests, and Deployment
+
+[] Deploy Aura Task Manager in Azure Cloud Service
