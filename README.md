@@ -173,17 +173,14 @@ Task Manager & To-do List application is design to help you better manage your t
 
 ## Tasks
 
-- [ ] (for unchecked checkbox)
-- [x] (for checked checkbox)
-
 :heavy_check_mark: Create the UI Design
 
 :heavy_check_mark: Docker File Configuration
 
 :heavy_check_mark: Kubernates Deployment file Configuration
 
-[] Application Development
+:x: Application Development
 
-[] CI/CD Pipeline Tests, and Deployment
+:x: CI/CD Pipeline Tests, and Deployment
 
-[] Deploy Aura Task Manager in Azure Cloud Service
+:x: Deploy Aura Task Manager in Azure Cloud Service
