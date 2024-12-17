@@ -173,11 +173,14 @@ Task Manager & To-do List application is design to help you better manage your t
 
 ## Tasks
 
-[x] Create the UI Design
+- [ ] (for unchecked checkbox)
+- [x] (for checked checkbox)
 
-[x] Docker File Configuration
+:heavy_check_mark: Create the UI Design
 
-[x] Kubernates Deployment file Configuration
+:heavy_check_mark: Docker File Configuration
+
+:heavy_check_mark: Kubernates Deployment file Configuration
 
 [] Application Development
 
