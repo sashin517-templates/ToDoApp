@@ -1,15 +1,17 @@
 FROM node:18-alpine
 
-WORKDIR /PORTFOLIO
+WORKDIR /src/app
 
-COPY package.json .
-
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
 
-COPY . .
+COPY . ./
 
-ENV PORT=5173
+FROM nginx:alpine
+
+COPY --from=build /app/build /usr/share/nginx/html
 
 EXPOSE 5173
 
-CMD [ "npm", "run", "dev"]
+CMD [ "nginx", "-g", "daemon off;"]
