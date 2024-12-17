@@ -181,6 +181,6 @@ Task Manager & To-do List application is design to help you better manage your t
 
 :x: Application Development
 
-:x: CI/CD Pipeline Tests, and Deployment
+:heavy_check_mark: CI/CD Pipeline Tests, and Deployment
 
 :x: Deploy Aura Task Manager in Azure Cloud Service
