@@ -160,9 +160,18 @@ The Task Manager & To-do List application is designed to help users better manag
 
 ---
 
+## Tasks
+
+- Create the UI Design :heavy_check_mark:
+- Docker File Configuration :heavy_check_mark:
+- Kubernates Deployment file Configuration :heavy_check_mark:
+- Application Development :x:
+- CI/CD Pipeline Tests, and Deployment :heavy_check_mark:
+- Deploy Aura Task Manager in Azure Cloud Service :x:
+
 ## Collabarators
 
-- Deemantha Rathnayake
+- Sashin Deemantha
 - Adithya Rusith
 - Chamika
 - Chamathvi
@@ -172,17 +181,3 @@ The Task Manager & To-do List application is designed to help users better manag
 - Methara
 - Adsaya
 - Lahiru Dilshan
-
-## Tasks
-
-:heavy_check_mark: Create the UI Design
-
-:heavy_check_mark: Docker File Configuration
-
-:heavy_check_mark: Kubernates Deployment file Configuration
-
-:x: Application Development
-
-:heavy_check_mark: CI/CD Pipeline Tests, and Deployment
-
-:x: Deploy Aura Task Manager in Azure Cloud Service
