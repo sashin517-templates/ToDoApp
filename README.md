@@ -4,8 +4,6 @@
 
 ![The Markdown logo](/public/Task%20Manager.png)
 
----
-
 ## Project Overview
 
 The Task Manager & To-do List application is designed to help users better manage their task project wiring. This application is especially for developers and designers, and other productive people. With the help of the application, they can create task groups like office projects, personal projects, studies, etc., and can handle the tasks very easily.
@@ -65,8 +63,6 @@ The Task Manager & To-do List application is designed to help users better manag
 
     - Compatible with desktop, mobile, and tablet devices.
 
----
-
 ## Backend Functionalities
 
 1. **Docker Containerization**
@@ -113,8 +109,6 @@ The Task Manager & To-do List application is designed to help users better manag
     ```
 
 5. **Congradulation, You will deploy the application in `localhost:5173`.**
-
----
 
 ### Docker & Kubernates Deployment
 
