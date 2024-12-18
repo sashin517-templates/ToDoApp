@@ -110,9 +110,7 @@ The Task Manager & To-do List application is designed to help users better manag
 
 5. **Congradulation, You will deploy the application in `localhost:5173`.**
 
-### Docker & Kubernates Deployment
-
-#### *Docker Deployment*
+### Docker Deployment
 
 1. **Select the file Directory, Then Open the Terminal Run the Following Command:**
 
@@ -133,7 +131,7 @@ The Task Manager & To-do List application is designed to help users better manag
     docker run -todo-frond
     ```
 
-#### *Kubernates Deployment*
+### Kubernates Deployment
 
 1. **Select the file Directory, Then Open the Terminal Run the Following Command:**
 
