@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-600 to-purple-800 flex flex-col items-center text-white">
+    <div className="min-h-screen bg-gradient-to-b from-white to-purple-800 flex flex-col items-center text-white">
       <div className="w-full max-w-sm mt-10 p-5 rounded-lg bg-gray-900">
         {/* Profile Content */}
         <div className="flex flex-col items-center mb-5">
@@ -103,25 +103,6 @@ const ProfilePage = () => {
         </button>
       </div>
 
-      {/* Bottom Navigation */}
-      <div className="fixed bottom-0 w-full flex justify-around bg-gray-900 py-3">
-        <button className="text-gray-400 hover:text-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 9h16.5M3.75 15h16.5M3.75 12h16.5M21 5.25a.75.75 0 00-.75-.75H3.75a.75.75 0 00-.75.75"
-            />
-          </svg>
-        </button>
-      </div>
       <Link to="/">
         <button>Back to Landing Page</button>
       </Link>
