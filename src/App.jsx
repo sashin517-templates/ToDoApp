@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
-import LandingPage from './Pages/LandingPage.jsx'
+import LoginPage from './Pages/LoginPage.jsx'
 
 function App() {
 
   return (
     <>
-      <LandingPage />
+      <LoginPage />
     </>
   )
 }
