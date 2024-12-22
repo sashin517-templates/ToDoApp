@@ -8,7 +8,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        
 
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>

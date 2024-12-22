@@ -146,6 +146,22 @@ const ProfilePage = () => {
               onBlur={handlePasswordBlur}
             />
           </div>
+
+          {/* Password Guidelines Popup */}
+          {showPasswordGuidelines && (
+            <div className="mt-3 p-4 bg-yellow-100 text-yellow-800 rounded-md shadow-md">
+              <p>
+                <strong>Password Guidelines:</strong>
+              </p>
+              <ul className="list-disc pl-5">
+                <li>At least 8 characters</li>
+                <li>Must include an uppercase letter</li>
+                <li>Must include a lowercase letter</li>
+                <li>Must include a number</li>
+                <li>May include special characters</li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
 
