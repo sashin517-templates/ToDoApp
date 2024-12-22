@@ -1,111 +1,167 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ProfilePage = () => {
+  const [profile, setProfile] = useState({
+    name: "Sashin Deemantha",
+    phone: "077 222 5556",
+    email: "Shashin123@gmail.com",
+    birthday: "12 / 12 / 2002",
+    password: "mypassword123",
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showPasswordGuidelines, setShowPasswordGuidelines] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+
+  const handleChange = (field, value) => {
+    setProfile((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
+
+  const handleSaveChanges = () => {
+    setShowSuccessMessage(true);
+    setTimeout(() => setShowSuccessMessage(false), 3000);
+  };
+
+  const handlePasswordFocus = () => {
+    setShowPasswordGuidelines(true);
+  };
+
+  const handlePasswordBlur = () => {
+    setShowPasswordGuidelines(false);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-purple-800 flex flex-col items-center text-white">
-      <div className="w-full max-w-sm mt-10 p-5 rounded-lg bg-gray-900">
-        {/* Profile Content */}
-        <div className="flex flex-col items-center mb-5">
-          <div className="w-24 h-24 rounded-full bg-gray-700 flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-12 h-12 text-gray-400"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 1115 0v.75H4.5v-.75z"
-              />
-            </svg>
+    <div className="min-h-screen bg-white flex flex-col items-center text-black">
+      {" "}
+      {/* Change background to white */}
+      {/* Profile Picture */}
+      <div className="flex justify-center mt-10">
+        <img
+          src="/assets/icons/profile-picture.png" // Use the correct path for your profile picture
+          alt="Profile Picture"
+          className="w-24 h-24 rounded-full border-4 border-transparent bg-gradient-to-b from-purple-600 to-white p-[1px]"
+        />
+      </div>
+      {/* Profile Title */}
+      <h2 className="text-3xl font-semibold mt-5 mb-5 text-slate-100">
+        Profile
+      </h2>
+      <div className="w-full max-w-sm p-5 rounded-lg bg-white">
+        {" "}
+        {/* Background is white */}
+        {/* Success message */}
+        {showSuccessMessage && (
+          <div className="bg-green-600 text-white p-2 mb-4 rounded-md text-center">
+            Profile Changes Saved Successfully!
           </div>
-        </div>
-
-        {/* Profile Information */}
+        )}
         <div className="space-y-4">
+          {/* Editable Fields */}
           <div className="flex items-center gap-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a8.25 8.25 0 1115 0v.75H4.5v-.75z"
-              />
-            </svg>
-            <span>Sashin Deemantha</span>
+            <img
+              src="/assets/icons/user.png"
+              alt="User Icon"
+              className="w-5 h-5"
+            />
+            <span className="text-gray-400">Name:</span>
+            <input
+              className="bg-gray-800 text-white p-1 rounded-md"
+              type="text"
+              value={profile.name}
+              onChange={(e) => handleChange("name", e.target.value)}
+            />
           </div>
           <div className="flex items-center gap-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 8.25c0 3.004-2.746 5.25-6.375 5.25S6.75 11.254 6.75 8.25m12.75 0A7.5 7.5 0 005.25 8.25m12.75 0V6a3.75 3.75 0 00-3.75-3.75h-3a3.75 3.75 0 00-3.75 3.75v2.25"
-              />
-            </svg>
-            <span>12 / 12 / 2002</span>
+            <img
+              src="/assets/icons/phone.png"
+              alt="Phone Icon"
+              className="w-5 h-5"
+            />
+            <span className="text-gray-400">Phone:</span>
+            <input
+              className="bg-gray-800 text-white p-1 rounded-md"
+              type="text"
+              value={profile.phone}
+              onChange={(e) => handleChange("phone", e.target.value)}
+            />
           </div>
           <div className="flex items-center gap-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-            <span>077 222 5556</span>
+            <img
+              src="/assets/icons/email.png"
+              alt="Email Icon"
+              className="w-5 h-5"
+            />
+            <span className="text-gray-400">Email:</span>
+            <input
+              className="bg-gray-800 text-white p-1 rounded-md"
+              type="email"
+              value={profile.email}
+              onChange={(e) => handleChange("email", e.target.value)}
+            />
           </div>
           <div className="flex items-center gap-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.75 5.25v13.5A2.25 2.25 0 0119.5 21H4.5a2.25 2.25 0 01-2.25-2.25V5.25A2.25 2.25 0 014.5 3h15a2.25 2.25 0 012.25 2.25z"
-              />
-            </svg>
-            <span>Shashin123@gmail.com</span>
+            <img
+              src="/assets/icons/calendar.png"
+              alt="Birthday Icon"
+              className="w-5 h-5"
+            />
+            <span className="text-gray-400">Birthday:</span>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              className="bg-gray-800 text-white p-1 rounded-md"
+              dateFormat="dd/MM/yyyy"
+            />
           </div>
-        </div>
 
-        {/* Edit Button */}
-        <button className="w-full mt-5 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg">
-          Edit Profile
+          {/* Editable Password Field */}
+          <div className="flex items-center gap-3">
+            <img
+              src="/assets/icons/lock.png"
+              alt="Password Icon"
+              className="w-5 h-5"
+            />
+            <span className="text-gray-400">Password:</span>
+            <input
+              className="bg-gray-800 text-white p-1 rounded-md"
+              type={showPassword ? "text" : "password"}
+              value={profile.password}
+              onChange={(e) => handleChange("password", e.target.value)}
+              onDoubleClick={togglePasswordVisibility}
+              onFocus={handlePasswordFocus} // Show guidelines when focused
+              onBlur={handlePasswordBlur} // Hide guidelines when focus is lost
+            />
+          </div>
+
+          {/* Password Guidelines */}
+          {showPasswordGuidelines && (
+            <div className="bg-gray-700 text-gray-300 p-3 rounded-md mt-2">
+              <ul>
+                <li>Must be at least 8 characters long.</li>
+                <li>Should contain at least one uppercase letter.</li>
+                <li>Should contain at least one number.</li>
+                <li>
+                  Should contain at least one special character (e.g., !, @, #,
+                  $).
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+        <button
+          onClick={handleSaveChanges}
+          className="w-full mt-5 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg"
+        >
+          Save Changes
         </button>
       </div>
-
-      <Link to="/">
-        <button>Back to Landing Page</button>
-      </Link>
     </div>
   );
 };
