@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
@@ -15,6 +16,8 @@ const ProfilePage = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showPasswordGuidelines, setShowPasswordGuidelines] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (field, value) => {
     setProfile((prev) => ({ ...prev, [field]: value }));
@@ -38,126 +41,128 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center text-black">
-      {" "}
-      {/* Change background to white */}
+    <div className="min-h-screen bg-gradient-to-b from-indigo-600 to-purple-800 flex flex-col items-center text-white">
       {/* Profile Picture */}
       <div className="flex justify-center mt-10">
         <img
-          src="/assets/icons/profile-picture.png" // Use the correct path for your profile picture
+          src="/assets/icons/profile-picture.png"
           alt="Profile Picture"
-          className="w-24 h-24 rounded-full border-4 border-transparent bg-gradient-to-b from-purple-600 to-white p-[1px]"
+          className="w-24 h-24 rounded-full border-4 border-solid bg-white to-white p-[1px]"
         />
       </div>
+
       {/* Profile Title */}
-      <h2 className="text-3xl font-semibold mt-5 mb-5 text-slate-100">
-        Profile
-      </h2>
-      <div className="w-full max-w-sm p-5 rounded-lg bg-white">
-        {" "}
-        {/* Background is white */}
+      <h2 className="text-3xl font-semibold mt-5 mb-5 text-white">Profile</h2>
+
+      {/* Editable Fields Box */}
+      <div className="inline-flex flex-col p-5 rounded-lg bg-white shadow-lg max-w-[800px]">
         {/* Success message */}
         {showSuccessMessage && (
           <div className="bg-green-600 text-white p-2 mb-4 rounded-md text-center">
             Profile Changes Saved Successfully!
           </div>
         )}
-        <div className="space-y-4">
-          {/* Editable Fields */}
-          <div className="flex items-center gap-3">
-            <img
-              src="/assets/icons/user.png"
-              alt="User Icon"
-              className="w-5 h-5"
-            />
-            <span className="text-gray-400">Name:</span>
-            <input
-              className="bg-gray-800 text-white p-1 rounded-md"
-              type="text"
-              value={profile.name}
-              onChange={(e) => handleChange("name", e.target.value)}
-            />
-          </div>
-          <div className="flex items-center gap-3">
-            <img
-              src="/assets/icons/phone.png"
-              alt="Phone Icon"
-              className="w-5 h-5"
-            />
-            <span className="text-gray-400">Phone:</span>
-            <input
-              className="bg-gray-800 text-white p-1 rounded-md"
-              type="text"
-              value={profile.phone}
-              onChange={(e) => handleChange("phone", e.target.value)}
-            />
-          </div>
-          <div className="flex items-center gap-3">
-            <img
-              src="/assets/icons/email.png"
-              alt="Email Icon"
-              className="w-5 h-5"
-            />
-            <span className="text-gray-400">Email:</span>
-            <input
-              className="bg-gray-800 text-white p-1 rounded-md"
-              type="email"
-              value={profile.email}
-              onChange={(e) => handleChange("email", e.target.value)}
-            />
-          </div>
-          <div className="flex items-center gap-3">
-            <img
-              src="/assets/icons/calendar.png"
-              alt="Birthday Icon"
-              className="w-5 h-5"
-            />
-            <span className="text-gray-400">Birthday:</span>
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className="bg-gray-800 text-white p-1 rounded-md"
-              dateFormat="dd/MM/yyyy"
-            />
+
+        <div className="space-y-8">
+          {/* Name and Phone Fields on the Same Line */}
+          <div className="flex justify-between gap-20">
+            <div className="flex items-center gap-5 w-full">
+              <img
+                src="/assets/icons/user.png"
+                alt="User Icon"
+                className="w-5 h-5"
+              />
+              <span className="text-purple-600">Name</span>
+              <input
+                className="bg-purple-600 border-white p-1 text-white p-1 rounded-md w-full"
+                type="text"
+                value={profile.name}
+                onChange={(e) => handleChange("name", e.target.value)}
+              />
+            </div>
+            <div className="flex items-center gap-5 w-full">
+              <img
+                src="/assets/icons/phone.png"
+                alt="Phone Icon"
+                className="w-5 h-5"
+              />
+              <span className="text-purple-600">Phone</span>
+              <input
+                className="bg-purple-600 text-white p-1 rounded-md w-full"
+                type="text"
+                value={profile.phone}
+                onChange={(e) => handleChange("phone", e.target.value)}
+              />
+            </div>
           </div>
 
-          {/* Editable Password Field */}
-          <div className="flex items-center gap-3">
+          {/* Birthday and Email Fields on the Same Line */}
+          <div className="flex justify-between gap-20">
+            <div className="flex items-center gap-5 w-full">
+              <img
+                src="/assets/icons/calendar.png"
+                alt="Birthday Icon"
+                className="w-5 h-5"
+              />
+              <span className="text-purple-600">Birthday</span>
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                className="bg-purple-600 text-white p-1 rounded-md  w-full"
+                dateFormat="dd/MM/yyyy"
+              />
+            </div>
+            <div className="flex items-center gap-5 w-full">
+              <img
+                src="/assets/icons/email.png"
+                alt="Email Icon"
+                className="w-5 h-5"
+              />
+              <span className="text-purple-600">Email</span>
+              <input
+                className="bg-purple-600 text-white p-1 rounded-md w-full"
+                type="email"
+                value={profile.email}
+                onChange={(e) => handleChange("email", e.target.value)}
+              />
+            </div>
+          </div>
+
+          {/* Password Field */}
+          <div className="flex items-center gap-3 w-full">
             <img
               src="/assets/icons/lock.png"
               alt="Password Icon"
               className="w-5 h-5"
             />
-            <span className="text-gray-400">Password:</span>
+            <span className="text-purple-600">Password</span>
             <input
-              className="bg-gray-800 text-white p-1 rounded-md"
+              className="bg-purple-600 text-white p-1 rounded-md w-auto"
               type={showPassword ? "text" : "password"}
               value={profile.password}
               onChange={(e) => handleChange("password", e.target.value)}
               onDoubleClick={togglePasswordVisibility}
-              onFocus={handlePasswordFocus} // Show guidelines when focused
-              onBlur={handlePasswordBlur} // Hide guidelines when focus is lost
+              onFocus={handlePasswordFocus}
+              onBlur={handlePasswordBlur}
             />
           </div>
-
-          {/* Password Guidelines */}
-          {showPasswordGuidelines && (
-            <div className="bg-gray-700 text-gray-300 p-3 rounded-md mt-2">
-              <ul>
-                <li>Must be at least 8 characters long.</li>
-                <li>Should contain at least one uppercase letter.</li>
-                <li>Should contain at least one number.</li>
-                <li>
-                  Should contain at least one special character (e.g., !, @, #,
-                  $).
-                </li>
-              </ul>
-            </div>
-          )}
         </div>
+      </div>
+
+      {/* Buttons Container */}
+      <div className="flex justify-between mt-5 gap-4">
+        {/* Back Button */}
+        <button
+          onClick={() => navigate("/")} // Adjust the path to your landing page
+          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg text-lg"
+        >
+          Back
+        </button>
+
+        {/* Save Changes Button */}
         <button
           onClick={handleSaveChanges}
-          className="w-full mt-5 bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg"
+          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg text-lg"
         >
           Save Changes
         </button>

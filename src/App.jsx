@@ -7,10 +7,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />{" "}
-        {/* LandingPage will display here */}
-        <Route path="/profile" element={<ProfilePage />} />{" "}
-        {/* ProfilePage will display here */}
+        <Route path="/" element={<LandingPage />} />
+        
+
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
   );
