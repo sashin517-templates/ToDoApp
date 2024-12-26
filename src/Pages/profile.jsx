@@ -17,6 +17,7 @@ const ProfilePage = ({ isDarkMode }) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showPasswordGuidelines, setShowPasswordGuidelines] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [loggedOut, setLoggedOut] = useState(false); // Track log-out status
 
   const navigate = useNavigate();
 
@@ -47,6 +48,16 @@ const ProfilePage = ({ isDarkMode }) => {
       const imageUrl = URL.createObjectURL(file);
       setProfile((prev) => ({ ...prev, profilePicture: imageUrl }));
     }
+  };
+
+  const handleLogOut = () => {
+    // Clear user data (e.g., authentication token, user data)
+    setLoggedOut(true);
+
+    // Optionally, you can also navigate the user back to the login or home page
+    setTimeout(() => {
+      navigate("/"); // Redirect to the landing page or login page after log out
+    }, 3000);
   };
 
   return (
@@ -85,9 +96,11 @@ const ProfilePage = ({ isDarkMode }) => {
       {/* Editable Fields Box */}
       <div className="flex flex-col p-5 rounded-lg bg-white shadow-lg max-w-4xl w-full space-y-8 mt-8">
         {/* Success message */}
-        {showSuccessMessage && (
-          <div className="bg-green-600 text-white p-2 mb-4 rounded-md text-center">
-            Profile Changes Saved Successfully!
+        {(showSuccessMessage || loggedOut) && (
+          <div className="bg-green-600 text-white p-3 mb-4 rounded-md text-center">
+            {showSuccessMessage
+              ? "Profile Changes Saved Successfully!"
+              : "You have successfully logged out!"}
           </div>
         )}
 
@@ -169,15 +182,21 @@ const ProfilePage = ({ isDarkMode }) => {
       <div className="flex flex-col sm:flex-row gap-4 mt-5">
         <button
           onClick={() => navigate("/")}
-          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg w-full sm:w-40"
+          className="bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
         >
           Back
         </button>
         <button
           onClick={handleSaveChanges}
-          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg w-full sm:w-40"
+          className="bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
         >
           Save Changes
+        </button>
+        <button
+          onClick={handleLogOut}
+          className="bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
+        >
+          Log Out
         </button>
       </div>
     </div>
@@ -185,3 +204,6 @@ const ProfilePage = ({ isDarkMode }) => {
 };
 
 export default ProfilePage;
+
+
+
