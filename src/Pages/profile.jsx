@@ -170,15 +170,16 @@ const ProfilePage = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate("/")} // Adjust the path to your landing page
-          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg text-lg"
+          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg text-lg w-40"
         >
           Back
         </button>
 
         {/* Save Changes Button */}
+
         <button
           onClick={handleSaveChanges}
-          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg text-lg"
+          className="bg-white hover:bg-indigo-600 hover:text-white text-purple-600 py-2 px-6 rounded-lg text-lg w-40"
         >
           Save Changes
         </button>
