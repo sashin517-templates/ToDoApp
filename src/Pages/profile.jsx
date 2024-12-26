@@ -59,7 +59,7 @@ const ProfilePage = ({ isDarkMode }) => {
       navigate("/"); // Redirect to the landing page or login page after log out
     }, 3000);
   };
-//coding
+  //coding
   return (
     <div
       className={`min-h-screen ${
@@ -186,7 +186,7 @@ const ProfilePage = ({ isDarkMode }) => {
           </div>
         )}
       </div>
-         
+
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 mt-5">
         <button
@@ -213,3 +213,4 @@ const ProfilePage = ({ isDarkMode }) => {
 };
 
 export default ProfilePage;
+//  Hi
