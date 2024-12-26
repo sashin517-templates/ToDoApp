@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingPage from "./Pages/LandingPage";
-import ProfilePage from "./Pages/Profile";
+import LandingPage from "./Pages/LandingPage.jsx";
+import ProfilePage from "./Pages/profile.jsx";
 
 function App() {
   // State to manage dark mode toggle
@@ -17,7 +17,7 @@ function App() {
       <div className={isDarkMode ? "dark" : ""}>
         {/* Thin top bar with app name and dark mode switch */}
         <div
-          className={`fixed top-0 left-0 w-full p-2 flex justify-between items-center z-10 
+          className={`fixed top-0 left-0 w-full p-2 flex justify-between items-center z-10
             ${
               isDarkMode ? "bg-gray-800 text-white" : "bg-white text-purple-600"
             }`}
