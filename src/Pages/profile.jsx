@@ -62,7 +62,7 @@ const ProfilePage = ({ isDarkMode }) => {
   //coding
   return (
     <div
-      className={`min-h-screen ${
+      className={`h-dvh ${
         isDarkMode
           ? "bg-gray-800 text-white"
           : "bg-gradient-to-b from-white to-purple-800 text-white"
