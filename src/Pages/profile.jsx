@@ -59,7 +59,7 @@ const ProfilePage = ({ isDarkMode }) => {
       navigate("/"); // Redirect to the landing page or login page after log out
     }, 3000);
   };
-
+//coding
   return (
     <div
       className={`min-h-screen ${
