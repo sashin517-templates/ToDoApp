@@ -170,7 +170,7 @@ const ProfilePage = ({ isDarkMode }) => {
           </div>
         </div>
 
-        {/* Password Guidelines */}
+        {/* Password Guidelines.password */}
         {showPasswordGuidelines && (
           <div className="mt-3 p-4 bg-yellow-100 text-yellow-800 rounded-md shadow-md">
             <p>
@@ -186,7 +186,7 @@ const ProfilePage = ({ isDarkMode }) => {
           </div>
         )}
       </div>
-
+         
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 mt-5">
         <button
