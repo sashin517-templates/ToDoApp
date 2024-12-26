@@ -3,21 +3,21 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
 
-const ProfilePage = ({ isDarkMode }) => {
+const ProfilePage = () => {
   const [profile, setProfile] = useState({
     name: "Sashin Deemantha",
     phone: "077 222 5556",
     email: "Shashin123@gmail.com",
     birthday: "12 / 12 / 2002",
     password: "mypassword123",
-    profilePicture: "/assets/icons/profile-picture.png", // Default profile picture
+    profilePicture: "/assets/icons/profile-picture.png",
   });
 
   const [showPassword, setShowPassword] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showPasswordGuidelines, setShowPasswordGuidelines] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  const [loggedOut, setLoggedOut] = useState(false); // Track log-out status
+  const [loggedOut, setLoggedOut] = useState(false);
 
   const navigate = useNavigate();
 
@@ -51,24 +51,13 @@ const ProfilePage = ({ isDarkMode }) => {
   };
 
   const handleLogOut = () => {
-    // Clear user data (e.g., authentication token, user data)
     setLoggedOut(true);
-
-    // you can also navigate the user back to the login or home page
     setTimeout(() => {
-      navigate("/"); // Redirect to the landing page or login page after log out
+      navigate("/");
     }, 3000);
   };
-  //coding
   return (
-    <div
-      className={`h-dvh ${
-        isDarkMode
-          ? "bg-gray-800 text-white"
-          : "bg-gradient-to-b from-white to-purple-800 text-white"
-      } flex flex-col justify-center items-center`}
-    >
-      {/* Profile Picture */}
+    <div className="flex flex-col items-center p-5">
       <div className="flex justify-center mt-10">
         <img
           src={profile.profilePicture}
@@ -76,11 +65,7 @@ const ProfilePage = ({ isDarkMode }) => {
           className="w-24 h-24 rounded-full border-4 border-white"
         />
       </div>
-
-      {/* Profile Title */}
       <h2 className="text-3xl font-semibold mt-5 mb-5">Profile</h2>
-
-      {/* Change Profile Picture Button */}
       <div className="flex justify-center">
         <label className="text-white bg-purple-600 py-2 px-6 rounded-lg cursor-pointer hover:bg-purple-700">
           Change Profile Picture
@@ -92,10 +77,7 @@ const ProfilePage = ({ isDarkMode }) => {
           />
         </label>
       </div>
-
-      {/* Editable Fields Box */}
       <div className="flex flex-col p-5 rounded-lg bg-white shadow-lg max-w-4xl w-full space-y-8 mt-8">
-        {/* Success message */}
         {(showSuccessMessage || loggedOut) && (
           <div className="bg-green-600 text-white p-3 mb-4 rounded-md text-center">
             {showSuccessMessage
@@ -103,8 +85,6 @@ const ProfilePage = ({ isDarkMode }) => {
               : "You have successfully logged out!"}
           </div>
         )}
-
-        {/* Name and Phone Fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex flex-col">
             <label className="text-purple-600">Name</label>
@@ -125,8 +105,6 @@ const ProfilePage = ({ isDarkMode }) => {
             />
           </div>
         </div>
-
-        {/* Birthday and Email Fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="flex flex-col">
             <label className="text-purple-600">Birthday</label>
@@ -147,8 +125,6 @@ const ProfilePage = ({ isDarkMode }) => {
             />
           </div>
         </div>
-
-        {/* Password Field */}
         <div className="flex flex-col relative">
           <label className="text-purple-600">Password</label>
           <div className="relative">
@@ -169,8 +145,6 @@ const ProfilePage = ({ isDarkMode }) => {
             </button>
           </div>
         </div>
-
-        {/* Password Guidelines.password */}
         {showPasswordGuidelines && (
           <div className="mt-3 p-4 bg-yellow-100 text-yellow-800 rounded-md shadow-md">
             <p>
@@ -186,8 +160,6 @@ const ProfilePage = ({ isDarkMode }) => {
           </div>
         )}
       </div>
-
-      {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 mt-5">
         <button
           onClick={() => navigate("/")}
