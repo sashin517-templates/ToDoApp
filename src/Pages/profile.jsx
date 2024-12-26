@@ -54,7 +54,7 @@ const ProfilePage = ({ isDarkMode }) => {
     // Clear user data (e.g., authentication token, user data)
     setLoggedOut(true);
 
-    // Optionally, you can also navigate the user back to the login or home page
+    // you can also navigate the user back to the login or home page
     setTimeout(() => {
       navigate("/"); // Redirect to the landing page or login page after log out
     }, 3000);
@@ -64,8 +64,8 @@ const ProfilePage = ({ isDarkMode }) => {
     <div
       className={`min-h-screen ${
         isDarkMode
-          ? "bg-gray-900 text-white"
-          : "bg-gradient-to-b from-indigo-600 to-purple-800 text-white"
+          ? "bg-gray-800 text-white"
+          : "bg-gradient-to-b from-white to-purple-800 text-white"
       } flex flex-col justify-center items-center`}
     >
       {/* Profile Picture */}
@@ -149,16 +149,25 @@ const ProfilePage = ({ isDarkMode }) => {
         </div>
 
         {/* Password Field */}
-        <div className="flex flex-col">
+        <div className="flex flex-col relative">
           <label className="text-purple-600">Password</label>
-          <input
-            className="bg-purple-600 text-white p-2 rounded-md"
-            type={showPassword ? "text" : "password"}
-            value={profile.password}
-            onChange={(e) => handleChange("password", e.target.value)}
-            onFocus={handlePasswordFocus}
-            onBlur={handlePasswordBlur}
-          />
+          <div className="relative">
+            <input
+              className="bg-purple-600 text-white p-2 rounded-md w-full pr-16"
+              type={showPassword ? "text" : "password"}
+              value={profile.password}
+              onChange={(e) => handleChange("password", e.target.value)}
+              onFocus={handlePasswordFocus}
+              onBlur={handlePasswordBlur}
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="absolute top-2 right-2 text-purple-white"
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
         </div>
 
         {/* Password Guidelines */}
@@ -182,13 +191,13 @@ const ProfilePage = ({ isDarkMode }) => {
       <div className="flex flex-col sm:flex-row gap-4 mt-5">
         <button
           onClick={() => navigate("/")}
-          className="bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
+          className="bg-white hover:purple-600 text-purple-600 py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
         >
           Back
         </button>
         <button
           onClick={handleSaveChanges}
-          className="bg-red-600 hover:bg-red-700 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
+          className="bg-white hover:purple-600 text-purple-600 py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
         >
           Save Changes
         </button>
@@ -204,6 +213,3 @@ const ProfilePage = ({ isDarkMode }) => {
 };
 
 export default ProfilePage;
-
-
-
