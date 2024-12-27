@@ -4,8 +4,10 @@ WORKDIR /
 
 COPY package*.json .
 
+# Install app dependencies
 RUN npm install
 
+# Copy the entire source code
 COPY . .
 
 EXPOSE 5173
