@@ -7,6 +7,7 @@ import Profile from "./Pages/ProfilePage.jsx";
 import NaviBar from "./Components/NaviBar.jsx";
 import Footer from "./Components/Footer.jsx";
 import RegisterPage from "./Pages/RegisterPage.jsx";
+import LandingPage from "./Pages/LandingPage.jsx";
 
 function App() {
   const { theme } = useTheme();
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
       <Routes>
+        <Route path="/home" element={<LandingPage />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
