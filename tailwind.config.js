@@ -15,8 +15,14 @@ export default {
       black: "#000000",
       red: "#F52E31",
       bb: "#0000001a",
+      customPurple: "#EDE6FF", //light mode cards colour
+      PrimePurple: "#5F33E1", //primary colour of site
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+      },
+    },
   },
   plugins: [],
   darkMode: "class",
