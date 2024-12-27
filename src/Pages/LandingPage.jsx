@@ -1,6 +1,5 @@
 import React from "react";
 import NaviBar from "../Components/NaviBar";
-import { Link } from "react-router-dom";
 import Footer from '../Components/Footer'
 
 function LandingPage() {
@@ -8,6 +7,7 @@ function LandingPage() {
     <div>
         <NaviBar />
         <h1 className='text-red-500 font-bold'>Landing Page</h1>
+        <Footer />
     </div>
   );
 }
