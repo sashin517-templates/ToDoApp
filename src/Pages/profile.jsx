@@ -63,7 +63,7 @@ const Profile = () => {
           <img
             src={profile.profilePicture}
             alt="Profile Picture"
-            className="w-h-40 h-40 rounded-full border-4 border-white"
+            className="w-h-40 h-40 rounded-full border-none"
           />
           <label className="text-white bg-primary2 py-2 px-6 rounded-lg cursor-pointer">
             Change Profile Picture
@@ -75,7 +75,7 @@ const Profile = () => {
             />
           </label>
         </div>
-        <div className="flex flex-col rounded-lg bg-white shadow-lg max-w-2xl w-full p-10 border-bb border-2">
+        <div className="flex flex-col rounded-lg bg-white dark:bg-dtf shadow-lg max-w-2xl w-full p-10 border-bb border-2">
           {(showSuccessMessage || loggedOut) && (
             <div className="bg-green-600 text-white p-3 mb-4 rounded-md text-center">
               {showSuccessMessage
@@ -85,11 +85,11 @@ const Profile = () => {
           )}
           <div className="flex flex-col gap-5 w-full h-auto">
             <div className="flex flex-col gap-1">
-              <label className="text-black text-lg font-medium pl-5">
+              <label className="text-black dark:text-white text-lg font-medium pl-5">
                 Name
               </label>
               <input
-                className="bg-ltf border-none text-black pl-5 py-2 rounded-md"
+                className="bg-ltf dark:bg-dtb  border-none text-black dark:text-white pl-5 py-2 rounded-md"
                 type="text"
                 value={profile.name}
                 onChange={(e) => handleChange("name", e.target.value)}
@@ -100,40 +100,40 @@ const Profile = () => {
                 Email
               </label>
               <input
-                className="bg-ltf border-none text-black pl-5 py-2 rounded-md"
+                className="bg-ltf dark:bg-dtb border-none text-black dark:text-white pl-5 py-2 rounded-md"
                 type="email"
                 value={profile.email}
                 onChange={(e) => handleChange("email", e.target.value)}
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-black text-lg font-medium pl-5">
+              <label className="text-black dark:text-white text-lg font-medium pl-5">
                 Phone
               </label>
               <input
-                className="bg-ltf border-none text-black pl-5 py-2 rounded-md"
+                className="bg-ltf dark:bg-dtb border-none text-black dark:text-white pl-5 py-2 rounded-md"
                 type="text"
                 value={profile.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
               />
             </div>
             <div className="flex flex-col gap-1 w-full">
-              <label className="text-black text-lg font-medium pl-5">
+              <label className="text-black dark:text-white text-lg font-medium pl-5">
                 Birthday
               </label>
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
-                className="bg-ltf border-none text-black pl-5 py-2 rounded-md w-full"
+                className="bg-ltf dark:bg-dtb border-none text-black dark:text-white pl-5 py-2 rounded-md w-full"
                 dateFormat="dd/MM/yyyy"
               />
             </div>
             <div className="flex flex-col gap-1 relative">
-              <label className="text-black text-lg font-medium pl-5 top-0 ">
+              <label className="text-black dark:text-white text-lg font-medium pl-5 top-0 ">
                 Password
               </label>
               <input
-                className="bg-ltf border-none text-black pl-5 py-2 rounded-md w-full"
+                className="bg-ltf dark:bg-dtb border-none text-black dark:text-white pl-5 py-2 rounded-md w-full"
                 type={showPassword ? "text" : "password"}
                 value={profile.password}
                 onChange={(e) => handleChange("password", e.target.value)}
