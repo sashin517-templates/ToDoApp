@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useTheme } from "./Components/ThemeContext.jsx";
 
 import LoginPage from "./Pages/LoginPage.jsx";
-import Profile from "./Pages/Profile.jsx";
+import Profile from "./Pages/ProfilePage.jsx";
 import NaviBar from "./Components/NaviBar.jsx";
 import Footer from "./Components/Footer.jsx";
 import RegisterPage from "./Pages/RegisterPage.jsx";
