@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import NaviBar from "../Components/NaviBar.jsx";
 
-const ProfilePage = () => {
+const Profile = () => {
   const [profile, setProfile] = useState({
     name: "Sashin Deemantha",
     phone: "077 222 5556",
     email: "Shashin123@gmail.com",
     birthday: "12 / 12 / 2002",
     password: "mypassword123",
-    profilePicture: "/assets/icons/profile-picture.png",
+    profilePicture: "/profile-picture.png",
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -57,26 +58,19 @@ const ProfilePage = () => {
     }, 3000);
   };
   return (
-    <div className="flex flex-col items-center p-5">
-      <div className="flex justify-center mt-10">
-        <img
-          src={profile.profilePicture}
-          alt="Profile Picture"
-          className="w-24 h-24 rounded-full border-4 border-white"
-        />
-      </div>
-      <h2 className="text-3xl font-semibold mt-5 mb-5">Profile</h2>
-      <div className="flex justify-center">
-        <label className="text-white bg-purple-600 py-2 px-6 rounded-lg cursor-pointer hover:bg-purple-700">
-          Change Profile Picture
-          <input
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={handleProfilePictureChange}
+    <div className="dark:bg-dtb text-black dark:text-white">
+      <div className="flex justify-center mt-10 flex-col items-center p-5">
+        <div className="flex flex-col items-center gap-5">
+          <img
+            src={profile.profilePicture}
+            alt="Profile Picture"
+            className="w-24 h-24 rounded-full border-4 border-white"
           />
-        </label>
-      </div>
+          <label className="text-white bg-primary2 py-2 px-6 rounded-lg cursor-pointer">
+            Change Profile Picture
+            <input className="hidden" type="file" accept="image/*" onChange={handleProfilePictureChange} />
+          </label>
+        </div>
       <div className="flex flex-col p-5 rounded-lg bg-white shadow-lg max-w-4xl w-full space-y-8 mt-8">
         {(showSuccessMessage || loggedOut) && (
           <div className="bg-green-600 text-white p-3 mb-4 rounded-md text-center">
@@ -180,9 +174,9 @@ const ProfilePage = () => {
           Log Out
         </button>
       </div>
+      </div>
     </div>
   );
 };
 
-export default ProfilePage;
-//  Hi
+export default Profile;
