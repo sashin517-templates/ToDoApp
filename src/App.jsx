@@ -18,7 +18,6 @@ function App() {
 
   return (
     <Router>
-      <NaviBar />
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -27,7 +26,6 @@ function App() {
         <Route path="/home" element={<LandingPage />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-      <Footer />
     </Router>
   );
 }

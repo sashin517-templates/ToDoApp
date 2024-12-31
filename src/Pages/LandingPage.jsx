@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import NaviBar from "../Components/NaviBar";
+import FloatingNav from "../Components/FloatingNav";
 
 function LandingPage() {
   const [mode, setMode] = useState("light");
@@ -82,6 +84,8 @@ function LandingPage() {
 
   return (
     <>
+      <NaviBar />
+      <FloatingNav />
       <div className="bg-ltb dark:bg-dtb flex flex-col justify-center gap-20 items-center w-dvw h-[90dvh]">
         {/* <div className="flex items-center justify-around w-[600px] h-12 bg-ltf dark:bg-dtf rounded-full">
           {["all", "work", "home", "study"].map((category) => (
@@ -111,7 +115,7 @@ function LandingPage() {
               {filteredTasks.map((task) => (
                 <div
                   key={task.id}
-                  className="flex gap-3 items-center justify-evenly text-xl bg-ltf py-2 px-8 rounded-lg"
+                  className="flex gap-3 items-center justify-evenly text-xl bg-ltf dark:bg-dtf py-2 px-8 rounded-lg"
                 >
                   <input
                     className="h-4 w-4 outline-2 outline-primary2"
@@ -119,8 +123,12 @@ function LandingPage() {
                     checked={task.completed}
                     onChange={() => toggleTaskCompletion(task.id)}
                   />{" "}
-                  <span className="font-semibold text-xl">{task.text}</span>
-                  <span>{task.date}</span>
+                  <span className="font-semibold text-xl text-black dark:text-white">
+                    {task.text}
+                  </span>
+                  <span className="text-black dark:text-white">
+                    {task.date}
+                  </span>
                 </div>
               ))}
             </div>
@@ -137,7 +145,7 @@ function LandingPage() {
               {filteredEvents.map((event) => (
                 <div
                   key={event.id}
-                  className="flex gap-3 items-center justify-evenly text-xl bg-ltf py-2 px-8 rounded-lg"
+                  className="flex gap-3 items-center justify-evenly text-xl bg-ltf dark:bg-dtf py-2 px-8 rounded-lg"
                 >
                   <input
                     className="h-4 w-4 outline-2 outline-primary2"
@@ -145,8 +153,12 @@ function LandingPage() {
                     checked={event.completed}
                     onChange={() => toggleEventCompletion(event.id)}
                   />{" "}
-                  <span className="font-semibold text-xl">{event.text}</span>
-                  <span>{event.date}</span>
+                  <span className="font-semibold text-xl text-black dark:text-white">
+                    {event.text}
+                  </span>
+                  <span className="text-black dark:text-white">
+                    {event.date}
+                  </span>
                 </div>
               ))}
             </div>

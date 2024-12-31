@@ -5,6 +5,7 @@ export default {
   theme: {
     colors: {
       transparent: "transparent",
+      glass: "rgba(27, 27, 27, 0.15)",
       ltb: "#FFFFFF",
       dtb: "#161221",
       ltf: "#EDE6FF",
@@ -21,6 +22,9 @@ export default {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+      },
+      backgroundImage: {
+        "login-bg": "url('SignInBg.svg')",
       },
     },
   },
