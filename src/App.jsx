@@ -1,3 +1,5 @@
+import LandingPage from './Pages/LandingPage.jsx'
+import TaskaddPage from './Pages/TaskaddPage.jsx'
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useTheme } from "./Components/ThemeContext.jsx";
@@ -25,6 +27,10 @@ function App() {
       <Routes>
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <Routes>
+        <Route path="/tasks" element={<TaskaddPage />} />
+      </Routes>
+
       <Footer />
     </Router>
   );

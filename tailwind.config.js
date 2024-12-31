@@ -17,6 +17,9 @@ export default {
       bb: "#0000001a",
       customPurple: "#EDE6FF", //light mode cards colour
       PrimePurple: "#5F33E1", //primary colour of site
+      green: "#28a745", 
+      yellow: "#ffc107", 
+      orange: "#fd7e14", 
     },
     extend: {
       fontFamily: {
