@@ -1,10 +1,14 @@
 import React from "react";
 import LoginCard from "../Components/LoginCard";
+import LoginNav from "../Components/LoginNav";
+import Footer from "../Components/Footer";
 
 function LandingPage() {
   return (
-    <div className="flex justify-center items-center h-[90dvh] dark:bg-dtb">
+    <div className="flex flex-col justify-between items-center h-[100dvh] dark:bg-dtb bg-login-bg bg-cover">
+      <LoginNav />
       <LoginCard />
+      <Footer />
     </div>
   );
 }

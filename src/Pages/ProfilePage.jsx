@@ -10,7 +10,7 @@ const Profile = () => {
     email: "Shashin123@gmail.com",
     birthday: "12 / 12 / 2002",
     password: "mypassword123",
-    profilePicture: "/profile-picture.png",
+    profilePicture: "",
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -57,13 +57,14 @@ const Profile = () => {
     }, 3000);
   };
   return (
-    <div className="dark:bg-dtb text-black dark:text-white flex flex-col items-center h-[90dvh]">
-      <div className="flex justify-center gap-5 flex-col h-full items-center p-5">
-        <div className="flex flex-col items-center gap-5">
+    <div className="dark:bg-dtb text-black dark:text-white flex flex-col items-center justify-center h-[90dvh] w-dvw">
+      <div className="flex gap-5 w-full justify-evenly items-center p-5">
+        <div className="flex flex-col items-center gap-5 ">
           <img
             src={profile.profilePicture}
-            alt="Profile Picture"
-            className="w-h-40 h-40 rounded-full border-none"
+            alt=""
+            title="Upload Profile Picture"
+            className="w-[500px] h-[500px] shadow-lg outline-transparent"
           />
           <label className="text-white bg-primary2 py-2 px-6 rounded-lg cursor-pointer">
             Change Profile Picture
@@ -75,7 +76,7 @@ const Profile = () => {
             />
           </label>
         </div>
-        <div className="flex flex-col rounded-lg bg-white dark:bg-dtf shadow-lg max-w-2xl w-full p-10 border-bb border-2">
+        <div className="flex flex-col rounded-lg bg-white dark:bg-dtf shadow-lg max-w-xl w-full p-10 border-bb border-2">
           {(showSuccessMessage || loggedOut) && (
             <div className="bg-green-600 text-white p-3 mb-4 rounded-md text-center">
               {showSuccessMessage
@@ -96,7 +97,7 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-black text-lg font-medium pl-5">
+              <label className="text-black dark:text-white text-lg font-medium pl-5">
                 Email
               </label>
               <input
@@ -165,26 +166,26 @@ const Profile = () => {
               </div>
             )}
           </div>
-        </div>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={() => navigate("/")}
-            className="bg-primary2 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
-          >
-            Back
-          </button>
-          <button
-            onClick={handleSaveChanges}
-            className="bg-primary2 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
-          >
-            Save Changes
-          </button>
-          <button
-            onClick={handleLogOut}
-            className="bg-red text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
-          >
-            Log Out
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => navigate("/")}
+              className="bg-primary2 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
+            >
+              Back
+            </button>
+            <button
+              onClick={handleSaveChanges}
+              className="bg-primary2 text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
+            >
+              Edit
+            </button>
+            <button
+              onClick={handleLogOut}
+              className="bg-red text-white py-2 px-6 rounded-lg w-full sm:w-40 mt-4"
+            >
+              Log Out
+            </button>
+          </div>
         </div>
       </div>
     </div>
