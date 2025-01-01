@@ -83,10 +83,8 @@ function LandingPage() {
   );
 
   return (
-    <>
-      <NaviBar />
-      <FloatingNav />
-      <div className="bg-ltb dark:bg-dtb flex flex-col justify-center gap-20 items-center w-dvw h-[90dvh]">
+    <div className="flex flex-col items-center">
+      <div className="bg-ltb dark:bg-dtb relative top-20 flex justify-start max-sm:justify-start max-sm:relative max-sm:top-14  gap-20 items-center w-dvw h-auto max-[1280px]:flex-col">
         {/* <div className="flex items-center justify-around w-[600px] h-12 bg-ltf dark:bg-dtf rounded-full">
           {["all", "work", "home", "study"].map((category) => (
             <button
@@ -102,20 +100,24 @@ function LandingPage() {
             </button>
           ))}
         </div> */}
-        <div className="flex justify-evenly w-full items-center">
-          <div className="flex flex-col gap-20 h-full">
-            <div className="flex flex-col items-center justify-evenly bg-primary2 text-white font-semibold text-xl w-96 h-60 rounded-lg">
-              <span>Monthly Task Progress</span>
-              <div className="w-28 h-28 rounded-full bg-transparent border-4 border-white flex items-center justify-center">
+        <div className="flex justify-evenly max-lg:gap-14 w-full items-center max-[1024px]:flex-col">
+          <div className="flex flex-col gap-20 h-full max-lg:gap-5">
+            <div className="flex flex-col max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-P1 to-P2 shadow-lg dark:shadow-lg text-white font-semibold text-xl w-[600px] h-[300px] max-xl:w-[500px] max-sm:w-[300px] max-lg:h-[150px] max-sm:h-[100px] rounded-3xl">
+              <div className="w-[150px] h-[150px] max-lg:w-[75px] max-lg:h-[75px] max-sm:w-[60px] max-sm:h-[60px] rounded-full bg-transparent border-4 border-white flex items-center justify-center">
                 <span>{taskProgress}%</span>
               </div>
+              <span className="text-2xl max-lg:text-xl max-sm:text-sm">
+                Monthly Task Progress
+              </span>
             </div>
-            <div className="flex flex-col items-start gap-5 w-full h-auto">
-              <h3 className="text-primary2 font-semibold text-2xl">Tasks</h3>
+            <div className="flex flex-col items-start gap-5 max-sm:gap-3 w-full max-sm:w-[300px] h-auto">
+              <h3 className="text-primary2 font-semibold text-2xl max-sm:text-lg">
+                Tasks
+              </h3>
               {filteredTasks.map((task) => (
                 <div
                   key={task.id}
-                  className="flex gap-3 items-center justify-evenly text-xl bg-ltf dark:bg-dtf py-2 px-8 rounded-lg"
+                  className="flex gap-3 items-center justify-evenly text-xl bg-glass_light dark:bg-glass_dark py-2 px-8 rounded-lg"
                 >
                   <input
                     className="h-4 w-4 outline-2 outline-primary2"
@@ -123,29 +125,31 @@ function LandingPage() {
                     checked={task.completed}
                     onChange={() => toggleTaskCompletion(task.id)}
                   />{" "}
-                  <span className="font-semibold text-xl text-black dark:text-white">
+                  <span className="font-semibold text-xl max-sm:text-xs text-black dark:text-white">
                     {task.text}
                   </span>
-                  <span className="text-black dark:text-white">
+                  <span className="text-black max-sm:text-xs dark:text-white">
                     {task.date}
                   </span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-20 h-full">
-            <div className="flex flex-col items-center justify-evenly bg-primary1 text-black font-semibold text-xl w-96 h-60 rounded-lg">
-              <span>Monthly Event Progress</span>
-              <div className="w-28 h-28 rounded-full bg-transparent border-4 border-black flex items-center justify-center">
+          <div className="flex flex-col gap-20 h-full max-lg:gap-5">
+            <div className="flex flex-col max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-O1 to-O2 shadow-lg text-black font-semibold text-xl w-[600px] h-[300px] max-lg:h-[150px] max-[1280px]:w-[500px] max-sm:w-[300px] max-sm:h-[100px] rounded-3xl">
+              <div className="w-[150px] h-[150px] max-lg:w-[75px] max-lg:h-[75px] max-sm:w-[60px] max-sm:h-[60px] rounded-full bg-transparent border-4 border-black flex items-center justify-center">
                 <span>{eventProgress}%</span>
               </div>
+              <span className="text-2xl max-lg:text-xl max-sm:text-sm">
+                Monthly Event Progress
+              </span>
             </div>
-            <div className="flex flex-col items-start gap-5 w-full h-auto">
-              <h3 className="text-primary1 font-semibold text-2xl">Events</h3>
+            <div className="flex flex-col items-start gap-5 max-sm:gap-3 w-full max-sm:w-[300px] h-auto">
+              <h3 className="text-primary1 font-semibold text-2xl ">Events</h3>
               {filteredEvents.map((event) => (
                 <div
                   key={event.id}
-                  className="flex gap-3 items-center justify-evenly text-xl bg-ltf dark:bg-dtf py-2 px-8 rounded-lg"
+                  className="flex gap-3 items-center justify-evenly text-xl bg-glass_light dark:bg-glass_dark py-2 px-8 rounded-lg"
                 >
                   <input
                     className="h-4 w-4 outline-2 outline-primary2"
@@ -153,10 +157,10 @@ function LandingPage() {
                     checked={event.completed}
                     onChange={() => toggleEventCompletion(event.id)}
                   />{" "}
-                  <span className="font-semibold text-xl text-black dark:text-white">
+                  <span className="font-semibold text-xl max-sm:text-xs text-black dark:text-white">
                     {event.text}
                   </span>
-                  <span className="text-black dark:text-white">
+                  <span className="text-black max-sm:text-xs dark:text-white">
                     {event.date}
                   </span>
                 </div>
@@ -165,7 +169,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
