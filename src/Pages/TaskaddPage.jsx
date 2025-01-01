@@ -8,7 +8,7 @@ import PrioritySelectionButton from '../Components/PrioritySelectionButton';
 import ReminderSelectionButton from '../Components/ReminderSelectionButton';
 import RepeatSelectionButton from '../Components/RepeatSelectionButton';
 import FooterNavBar from '../Components/FooterNavBar';
-import SaveButton from '../Components/SaveButton';
+import { saveTask } from '../Utils/firestore';
 
 function TaskaddPage() {
   // State variables for task title and description
@@ -23,6 +23,7 @@ function TaskaddPage() {
   const [reminderOption, setReminderOption] = useState("None");
   const [repeatOption, setRepeatOption] = useState('Repeat');
 
+  // List of available icons for selection
   const icons = [
     "/Icon-icon.svg",
     "/Category-icon.svg",
@@ -49,14 +50,45 @@ function TaskaddPage() {
   const reminderOptions = ["None", "5 minutes", "10 minutes", "Before start", "At start", "After start"];
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form behavior (e.g., page reload)
-    if (!title || !description) return; // Ensure both fields are filled before submission
-    // Add logic to save the task here
-  };
 
-  const handleSaveClick = () => {
-    // Handle save functionality here
+    if (!title || !description) {
+      alert("Title and description are required!");
+      return;
+    }
+
+    const taskData = {
+      title,
+      description,
+      icon: selectedIcon,
+      category: selectedCategory,
+      startDate: startDate ? startDate.toISOString() : null,
+      endDate: endDate ? endDate.toISOString() : null,
+      priority: selectedPriority,
+      reminder: reminderOption,
+      repeat: repeatOption,
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      await saveTask(taskData);
+      alert("Task saved successfully!");
+
+      // Clear the form after submission
+      setTitle("");
+      setDescription("");
+      setSelectedIcon("/Icon-icon.svg");
+      setSelectedCategory("Set Category");
+      setStartDate(null);
+      setEndDate(null);
+      setSelectedPriority(null);
+      setReminderOption("None");
+      setRepeatOption("Repeat");
+    } catch (error) {
+      console.error("Error saving task:", error);
+      alert("Failed to save task. Please try again.");
+    }
   };
 
   return (
@@ -146,7 +178,21 @@ function TaskaddPage() {
           </div>
 
           {/* Save button */}
-          <SaveButton onClick={handleSaveClick} />
+          <button
+            type="submit"
+            className="flex flex-col self-center mt-12 max-w-full text-base font-medium text-violet-100 whitespace-nowrap w-[100px]">
+            <div className="bg-primary2 flex overflow-hidden flex-col justify-center px-2.5 py-3 w-full bg-violet-700 rounded-3xl max-w-[100px]">
+              <div className="flex gap-2.5 items-center">
+                <img
+                  loading="lazy"
+                  src="Save-icon.svg"
+                  alt=""
+                  className="ml-1.5 object-contain shrink-0 self-stretch my-auto aspect-square w-[15px]"
+                />
+                <div className="text-white self-stretch my-auto">Save</div>
+              </div>
+            </div>
+          </button>
 
           {/* Footer navigation bar */}
           <FooterNavBar />
