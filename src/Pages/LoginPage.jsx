@@ -5,7 +5,7 @@ import Footer from "../Components/Footer";
 
 function LandingPage() {
   return (
-    <div className="flex flex-col justify-between items-center h-[100dvh] dark:bg-dtb bg-login-bg bg-cover">
+    <div className="flex flex-col justify-between items-center h-[100dvh] dark:bg-dtb bg-login-bg-light dark:bg-login-bg-dark bg-cover">
       <LoginNav />
       <LoginCard />
       <Footer />
