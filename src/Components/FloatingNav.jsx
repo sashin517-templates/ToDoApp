@@ -16,7 +16,7 @@ export default function FloatingNav() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="flex justify-end gap-5 bg-transparent">
+    <div className="flex justify-center items-center gap-5 bg-transparent">
       <div className="relative top-6 list-none flex justify-center items-center gap-[100px] max-md:gap-[70px] max-sm:gap-[40px] bg-primary2 w-[600px] max-md:w-[400px] max-sm:w-[300px] h-[60px] rounded-full">
         <NavLink
           to="/home"

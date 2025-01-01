@@ -29,37 +29,27 @@ export default {
       bb: "#0000001a",
     },
     boxShadow: {
-      custom: '0 4px 30px rgba(0, 0, 0, 0.1)',
+      custom: "0 4px 30px rgba(0, 0, 0, 0.1)",
     },
     backdropFilter: {
-      custom: 'blur(5px)',
+      custom: "blur(5px)",
     },
     borderColor: {
-      custom: 'rgba(255, 255, 255, 0.3)',
+      custom: "rgba(255, 255, 255, 0.3)",
     },
     fontWeight: {
-      subtle: '300',
-      highlighted: '700',
+      subtle: "300",
+      highlighted: "700",
     },
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
       backgroundImage: {
-<<<<<<< HEAD
-        "login-bg-light": "url('SignInBgLight.svg')",
-        "login-bg-dark": "url('SignInBgDark.svg')",
-
-        "home-icon": "url('House.svg')",
-        "home-icon-fill": "url('HouseFill.svg')",
-=======
         "login-bg": "url('Sign_In_V2.svg')",
->>>>>>> 11f4bbfc9ee91ded09fc136e235d08b00c19df06
       },
     },
   },
-  plugins: [
-    
-  ],
+  plugins: [],
   darkMode: "class",
 };
