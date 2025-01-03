@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import Google from '../assets/icons/google-svgrepo-com.svg'
+=======
+import Google from '../../public/Google.svg'
+>>>>>>> main
 
 function LoginWithGoogle() {
   return (

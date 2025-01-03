@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import Email from '../assets/icons/EnvelopeSimple.png'
+=======
+import Email from '../../public/EnvelopeSimple.svg'
+>>>>>>> main
 
 function InputEmail() {
   return (
