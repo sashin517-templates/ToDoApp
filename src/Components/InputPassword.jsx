@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
 import Lock from '../assets/icons/Lock.png'
-=======
-import Lock from '../../public/Lock copy.png'
->>>>>>> main
 
 function InputPassword() {
   return (
