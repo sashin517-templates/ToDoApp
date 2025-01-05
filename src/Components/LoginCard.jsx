@@ -12,7 +12,7 @@ function LoginCard() {
         <li>
           <div className="flex flex-col justify-center items-center gap-4">
             <InputEmail />
-            <InputPassword/>
+            <InputPassword />
             <LoginButton />
           </div>
         </li>
