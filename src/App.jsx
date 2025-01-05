@@ -7,6 +7,7 @@ import RegisterPage from "./Pages/RegisterPage.jsx";
 import TasksViewPage from "./Pages/TasksViewPage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import FloatingNav from "./Components/FloatingNav.jsx";
+import CalendarPage from "./Pages/CalendarPage.jsx";
 
 function App() {
   const { theme } = useTheme();
@@ -38,7 +39,7 @@ function App() {
             element={
               <>
                 <FloatingNav />
-                <LandingPage />
+                <CalendarPage />
               </>
             }
           />
