@@ -78,7 +78,7 @@ const Profile = () => {
             />
           </label>
         </div>
-        <div className="flex flex-col gap-5 rounded-xl bg-glass_light dark:bg-dtf shadow-2xl p-10 max-[1280px]:w-[500px] max-lg:w-[400px] max-md:w-[400px] w-full">
+        <div className="flex flex-col gap-5 rounded-xl bg-glass_light dark:bg-dtf shadow-2xl p-10 max-[1280px]:w-[500px] max-lg:w-[400px] max-md:w-[400px] w-[600px]">
           {(showSuccessMessage || loggedOut) && (
             <div className="bg-green-600 text-white p-3 mb-4 rounded-md text-center">
               {showSuccessMessage
@@ -88,7 +88,7 @@ const Profile = () => {
           )}
           <div className="flex flex-col gap-2 max-md:gap-4 h-auto max-sm:flex-nowrap ">
             <div className="flex flex-col gap-1 max-md:flex-row max-md:gap-2 max-md:items-center">
-              <label className="text-black dark:text-white text-md font-medium pl-5 max-md:hidden">
+              <label className="text-black dark:text-white text-md font-medium pl-5 max-lg:hidden max-md:hidden">
                 Name
               </label>
               <input
@@ -99,7 +99,7 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col gap-1 max-md:flex-row max-md:gap-2 max-md:items-center">
-              <label className="text-black dark:text-white text-md font-medium pl-5 max-md:hidden">
+              <label className="text-black dark:text-white text-md font-medium pl-5 max-lg:hidden max-md:hidden">
                 Email
               </label>
               <input
@@ -110,7 +110,7 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col gap-1 max-md:flex-row max-md:gap-2 max-md:items-center">
-              <label className="text-black dark:text-white text-md font-medium pl-5 max-md:hidden">
+              <label className="text-black dark:text-white text-md font-medium pl-5 max-lg:hidden max-md:hidden">
                 Phone
               </label>
               <input
@@ -121,18 +121,18 @@ const Profile = () => {
               />
             </div>
             <div className="flex flex-col gap-1 max-md:flex-row max-md:gap-2 max-md:items-center w-full">
-              <label className="text-black dark:text-white text-md font-medium pl-5 max-md:hidden">
+              <label className="text-black dark:text-white text-md font-medium pl-5 max-lg:hidden max-md:hidden">
                 Birthday
               </label>
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
-                className="bg-glass_light dark:bg-dtb border-none text-sm max-md:w-[320px] text-black dark:text-white pl-5 py-2 rounded-md"
+                className="bg-glass_light dark:bg-dtb border-none w-full max-md:w-full text-sm text-black dark:text-white pl-5 py-2 rounded-md"
                 dateFormat="dd/MM/yyyy"
               />
             </div>
-            <div className="flex flex-col gap-1 relative max-md:flex-row max-md:gap-2 max-md:items-center">
-              <label className="text-black dark:text-white text-md font-medium pl-5 top-0 max-md:hidden">
+            <div className="flex relative flex-col gap-1 max-md:flex-row max-md:gap-2 max-md:items-center">
+              <label className="text-black dark:text-white text-md font-medium pl-5 top-0 max-lg:hidden max-md:hidden">
                 Password
               </label>
               <input
@@ -143,15 +143,13 @@ const Profile = () => {
                 onFocus={handlePasswordFocus}
                 onBlur={handlePasswordBlur}
               />
-              <div className="absolute w-full">
-                <button
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                  className="absolute bottom-[-10px] right-5 text-purple-white"
-                >
-                  {showPassword ? "Hide" : "Show"}
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="absolute bottom-1/2 right-5 translate-y-full text-purple-white max-lg:hidden"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
             </div>
             {showPasswordGuidelines && (
               <div className="mt-3 p-4 bg-yellow-100 text-yellow-800 rounded-md shadow-md">

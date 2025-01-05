@@ -4,6 +4,7 @@ import { useTheme } from "./Components/ThemeContext.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
 import Profile from "./Pages/ProfilePage.jsx";
 import RegisterPage from "./Pages/RegisterPage.jsx";
+import TasksViewPage from "./Pages/TasksViewPage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import FloatingNav from "./Components/FloatingNav.jsx";
 
@@ -45,7 +46,7 @@ function App() {
             path="tasks"
             element={
               <>
-                <FloatingNav /> <LandingPage />
+                <FloatingNav /> <TasksViewPage />
               </>
             }
           />
