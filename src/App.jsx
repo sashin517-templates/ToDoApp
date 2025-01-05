@@ -18,7 +18,7 @@ function App() {
   }, [theme]);
 
   return (
-    <div className="flex flex-col items-center bg-ltb dark:bg-dtb h-dvh">
+    <div className="flex flex-col items-center bg-ltb dark:bg-dtb h-dvh overflow-x-hidden">
       <Router>
         <Routes>
           {/* Authentication Routes */}

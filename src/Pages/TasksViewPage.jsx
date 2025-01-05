@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import TaskAddButton from "../Components/TaskAddButton";
 
 function TasksViewPage() {
-  const [mode, setMode] = useState("light");
   const [filter, setFilter] = useState("all");
   const [tasks, setTasks] = useState([
     {
@@ -181,7 +181,7 @@ function TasksViewPage() {
   return (
     <div className="flex flex-col items-center w-dvw">
       <div className="bg-ltb dark:bg-dtb relative top-20 flex justify-start max-sm:justify-start max-sm:relative max-sm:top-14  gap-20 items-center w-dvw h-auto max-[1280px]:flex-col">
-        <div className="flex flex-col justify-evenly gap-10 w-dvw h-full items-center ">
+        <div className="flex relative flex-col justify-evenly gap-10 w-dvw h-full items-center ">
           <div className="flex justify-evenly w-dvw py-10 bg-ltf2 dark:bg-glass_dark">
             <div className="flex max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-P1 to-P2 shadow-lg dark:shadow-lg text-white font-semibold text-xl w-96 h-32 rounded-3xl">
               <div className="w-20 h-20 max-lg:w-[75px] max-lg:h-[75px] max-sm:w-[60px] max-sm:h-[60px] rounded-full bg-transparent border-4 border-white flex items-center justify-center">
@@ -242,7 +242,7 @@ function TasksViewPage() {
                     className="h-4 w-4 outline-2 outline-primary2"
                     type="checkbox"
                     checked={event.completed}
-                    onChange={() => toggleTaskCompletion(event.id)}
+                    onChange={() => toggleEventCompletion(event.id)}
                   />{" "}
                   <span className="font-semibold text-xl text-black dark:text-white">
                     {event.text}
@@ -254,6 +254,7 @@ function TasksViewPage() {
               ))}
             </div>
           </div>
+          <TaskAddButton />
         </div>
       </div>
     </div>

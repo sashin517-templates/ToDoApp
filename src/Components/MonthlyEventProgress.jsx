@@ -82,7 +82,7 @@ function MonthlyEventProgress() {
       <div className="w-32 h-32 rounded-full bg-transparent border-4 border-white flex items-center justify-center">
         <span>{eventProgress}%</span>
       </div>
-      <span className="text-xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
+      <span className="text-xl text-white font-montserrat font-semibold max-lg:text-xl max-sm:text-sm">
         Monthly Event Progress
       </span>
     </div>

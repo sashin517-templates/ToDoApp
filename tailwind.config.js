@@ -34,16 +34,17 @@ export default {
       PrimePurple: "#5F33E1", //primary colour of site
     },
     boxShadow: {
-      custom: '0 4px 30px rgba(0, 0, 0, 0.1)',
+      custom: "0 4px 30px rgba(0, 0, 0, 0.1)",
     },
     backdropFilter: {
-      custom: 'blur(5px)',
+      custom: "blur(5px)",
     },
     borderColor: {
-      custom: 'rgba(255, 255, 255, 0.3)',
+      custom: "rgba(255, 255, 255, 0.3)",
     },
     fontWeight: {
       subtle: "300",
+      semibold: "500",
       highlighted: "600",
     },
     extend: {
@@ -52,13 +53,11 @@ export default {
       },
       backgroundImage: {
         "login-bg": "url('Sign_In_V2.svg')",
-        'custom-gradient': 'linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%)',
-        'custom-gradient-2': 'linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%)'
+        "custom-gradient": "linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%)",
+        "custom-gradient-2": "linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%)",
       },
     },
   },
-  plugins: [
-    
-  ],
+  plugins: [],
   darkMode: "class",
 };

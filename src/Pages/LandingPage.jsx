@@ -4,6 +4,7 @@ import DateSection from "../Components/DateSection.jsx";
 import TimeSection from "../Components/TimeSection.jsx";
 import MonthlyEventProgress from "../Components/MonthlyEventProgress.jsx";
 import FavTaskCard from "../Components/FavTaskCard.jsx";
+import FavEventCard from "../Components/FavEventCard.jsx";
 
 function LandingPage() {
   return (
@@ -14,6 +15,7 @@ function LandingPage() {
         <DateSection />
         <TimeSection />
         <FavTaskCard />
+        <FavEventCard />
       </div>
     </div>
   );

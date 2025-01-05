@@ -154,9 +154,9 @@ function TaskaddPage() {
           <button type="submit" className="bg-primary2 px-5 py-3 rounded-2xl">
             <div className="text-white font-highlighted text-xl">Save</div>
           </button>
-          <button className="bg-red px-5 py-3 rounded-2xl">
+          <a href="/home" className="bg-red px-5 py-3 rounded-2xl">
             <div className="text-white font-highlighted text-xl">Cencel</div>
-          </button>
+          </a>
         </div>
       </form>
     </div>

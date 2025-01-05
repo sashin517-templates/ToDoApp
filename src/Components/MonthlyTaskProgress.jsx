@@ -81,7 +81,7 @@ function MonthlyTaskProgress() {
       <div className="w-32 h-32 rounded-full bg-transparent border-4 border-white flex items-center justify-center">
         <span>{taskProgress}%</span>
       </div>
-      <span className="text-xl font-highlighted max-lg:text-xl max-sm:text-sm">
+      <span className="text-xl font-montserrat font-semibold max-lg:text-xl max-sm:text-sm">
         Monthly Task Progress
       </span>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DateIcon from "/date-svgrepo-com.svg"; // Renamed the import to avoid conflict
+import DateIcon from "/Calendar.svg"; // Renamed the import to avoid conflict
 
 function DateSection() {
   const [date, setDate] = useState("");
