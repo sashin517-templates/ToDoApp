@@ -30,15 +30,17 @@ export default {
       black: "#000000",
       red: "#F52E31",
       bb: "#0000001a",
+      customPurple: "#EDE6FF", //light mode cards colour
+      PrimePurple: "#5F33E1", //primary colour of site
     },
     boxShadow: {
-      custom: "0 4px 30px rgba(0, 0, 0, 0.1)",
+      custom: '0 4px 30px rgba(0, 0, 0, 0.1)',
     },
     backdropFilter: {
-      custom: "blur(5px)",
+      custom: 'blur(5px)',
     },
     borderColor: {
-      custom: "rgba(255, 255, 255, 0.3)",
+      custom: 'rgba(255, 255, 255, 0.3)',
     },
     fontWeight: {
       subtle: "300",
@@ -53,6 +55,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
   darkMode: "class",
 };

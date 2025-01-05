@@ -1,15 +1,23 @@
+# Use an official Node.js image as the base image
 FROM node:20-alpine
 
-WORKDIR /
+# Set the working directory in the container
+WORKDIR /app
 
-COPY package*.json .
+# Copy the package.json and package-lock.json files to the working directory
+COPY package*.json ./
 
-# Install app dependencies
+# Install dependencies
 RUN npm install
 
-# Copy the entire source code
+# Copy the rest of the application source code to the working directory
 COPY . .
 
+# Build the React application
+RUN npm run build
+
+# Expose port 3000 to be accessible outside the container
 EXPOSE 5173
 
+# Serve the built React application using a simple static file server
 CMD ["npm", "run", "dev"]
