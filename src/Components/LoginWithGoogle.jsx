@@ -1,5 +1,5 @@
-import React from 'react'
-import Google from '../../public/Google.svg'
+import React from "react";
+import Google from "/Google.svg";
 
 function LoginWithGoogle() {
   return (
@@ -14,4 +14,4 @@ function LoginWithGoogle() {
   );
 }
 
-export default LoginWithGoogle
+export default LoginWithGoogle;

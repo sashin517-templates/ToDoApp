@@ -1,5 +1,5 @@
-import React from 'react'
-import Email from '../../public/EnvelopeSimple.svg'
+import React from "react";
+import Email from "/EnvelopeSimple.svg";
 
 function InputEmail() {
   return (
@@ -16,4 +16,4 @@ function InputEmail() {
   );
 }
 
-export default InputEmail
+export default InputEmail;

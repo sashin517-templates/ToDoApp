@@ -8,16 +8,16 @@ import TaskIcon from "/Task.svg";
 import TaskIconFill from "/TaskFill.svg";
 import UserIcon from "/User.svg";
 import UserIconFill from "/UserFill.svg";
-import { useTheme } from "../Components/ThemeContext";
 import LightIcon from "/sun.svg";
 import DarkIcon from "/moon.svg";
+import { useTheme } from "../Components/ThemeContext";
 
 export default function FloatingNav() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="flex justify-center items-center gap-5 bg-transparent">
-      <div className="relative top-6 list-none flex justify-center items-center gap-[100px] max-md:gap-[70px] max-sm:gap-[40px] bg-primary2 w-[600px] max-md:w-[400px] max-sm:w-[300px] h-[60px] rounded-full">
+    <div className="flex justify-center items-center gap-5 bg-transparent w-full">
+      <div className="flex relative w-3/4 top-6 list-none justify-evenly items-center    bg-primary2 max-md:w-[400px] max-sm:w-[300px] h-[60px] rounded-full">
         <NavLink
           to="/home"
           className={({ isActive }) =>
@@ -25,7 +25,10 @@ export default function FloatingNav() {
           }
         >
           {({ isActive }) => (
-            <img src={isActive ? HouseIconFill : HouseIcon} alt="Home Icon" />
+            <div className="flex items-center gap-2">
+              <img src={isActive ? HouseIconFill : HouseIcon} alt="Home Icon" />
+              <h1 className="text-white font-highlighted">Home</h1>
+            </div>
           )}
         </NavLink>
         <NavLink
@@ -35,10 +38,13 @@ export default function FloatingNav() {
           }
         >
           {({ isActive }) => (
-            <img
-              src={isActive ? CalendarIconFill : CalendarIcon}
-              alt="Calendar Icon"
-            />
+            <div className="flex gap-2 items-center">
+              <img
+                src={isActive ? CalendarIconFill : CalendarIcon}
+                alt="Calendar Icon"
+              />
+              <h1 className="text-white font-highlighted">Calendar</h1>
+            </div>
           )}
         </NavLink>
         <NavLink
@@ -48,7 +54,10 @@ export default function FloatingNav() {
           }
         >
           {({ isActive }) => (
-            <img src={isActive ? TaskIconFill : TaskIcon} alt="Task Icon" />
+            <div className="flex items-center gap-2">
+              <img src={isActive ? TaskIconFill : TaskIcon} alt="Task Icon" />
+              <h1 className="text-white font-highlighted">Tasks</h1>
+            </div>
           )}
         </NavLink>
         <NavLink
@@ -58,7 +67,10 @@ export default function FloatingNav() {
           }
         >
           {({ isActive }) => (
-            <img src={isActive ? UserIconFill : UserIcon} alt="User Icon" />
+            <div className="flex items-center gap-2">
+              <img src={isActive ? UserIconFill : UserIcon} alt="User Icon" />
+              <h1 className="text-white font-highlighted">Profile</h1>
+            </div>
           )}
         </NavLink>
       </div>

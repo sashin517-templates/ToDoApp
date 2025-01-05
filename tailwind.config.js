@@ -5,22 +5,25 @@ export default {
   theme: {
     gradientColorStops: {
       P1: "#5F33E1",
-      P2: "#6B63F9",
+      P2: "#8f70ea",
+      P3: "#C80036",
+      P4: "#FF6969",
       O1: "#FFC21F",
       O2: "#EA8800",
     },
     colors: {
       transparent: "transparent",
-      glass_light: "rgba(27, 27, 27, 0.15)",
-      glass_dark: "rgba(250, 250, 250, 0.15)",
-      ltb: "#FFFFFF",
-      dtb: "#161221",
+      glass_light: "#BCCCDC",
+      glass_dark: "#130a2d",
+      ltb: "#F8FAFC",
+      dtb: "#090516",
       ltf: "#EDE6FF",
+      ltf2: "#efebfc",
+      dtf: "#151B23",
       blendPurple: "rgba(54, 194, 206, 0.39)",
       lightBlendPurple: " rgba(255, 255, 255, 0.43)",
       lightPlusBlendPurple: "rgba(32, 116, 124, 0.7)",
       blendPurple1: "rgba(95, 51, 225, 0.7)",
-      dtf: "#2D2A37",
       primary1: "#FDBC1C",
       primary2: "#5F33E1",
       white: "#FFFFFF",
@@ -40,8 +43,8 @@ export default {
       custom: 'rgba(255, 255, 255, 0.3)',
     },
     fontWeight: {
-      subtle: '300',
-      highlighted: '700',
+      subtle: "300",
+      highlighted: "600",
     },
     extend: {
       fontFamily: {
