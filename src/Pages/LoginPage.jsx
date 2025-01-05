@@ -4,7 +4,7 @@ import LoginCard from '../Components/LoginCard'
 
 function LandingPage() {
   return (
-    <div className="flex flex-col justify-center items-center h-[100dvh] dark:bg-dtb bg-login-bg bg-cover">      
+    <div className="flex flex-col justify-center items-center h-screen bg-center w-screen dark:bg-dtb bg-login-bg bg-cover">      
       <LoginCard />
     </div>
   )

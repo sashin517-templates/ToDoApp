@@ -52,7 +52,7 @@ export default {
         montserrat: ["Montserrat", "sans-serif"],
       },
       backgroundImage: {
-        "login-bg": "url('Sign_In_V2.svg')",
+        "login-bg": "url('Sign In.png')",
         "custom-gradient": "linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%)",
         "custom-gradient-2": "linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%)",
       },
