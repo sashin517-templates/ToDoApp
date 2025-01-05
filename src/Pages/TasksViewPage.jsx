@@ -179,26 +179,11 @@ function TasksViewPage() {
   );
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-dvw">
       <div className="bg-ltb dark:bg-dtb relative top-20 flex justify-start max-sm:justify-start max-sm:relative max-sm:top-14  gap-20 items-center w-dvw h-auto max-[1280px]:flex-col">
-        {/* <div className="flex items-center justify-around w-[600px] h-12 bg-ltf dark:bg-dtf rounded-full">
-          {["all", "work", "home", "study"].map((category) => (
-            <button
-              key={category}
-              className={
-                filter === category
-                  ? "bg-primary2 h-3/4 px-7 rounded-full text-white font-semibold"
-                  : "text-black font-semibold"
-              }
-              onClick={() => setFilter(category)}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          ))}
-        </div> */}
-        <div className="flex flex-col justify-evenly gap-10 w-full h-full items-center ">
-          <div className="flex justify-evenly w-full py-10 bg-ltf2 dark:bg-glass_dark">
-            <div className="flex max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-P1 to-P2 shadow-lg dark:shadow-lg text-white font-semibold text-xl w-96 h-32 max-lg:h-[150px] max-sm:h-[100px] rounded-3xl">
+        <div className="flex flex-col justify-evenly gap-10 w-dvw h-full items-center ">
+          <div className="flex justify-evenly w-dvw py-10 bg-ltf2 dark:bg-glass_dark">
+            <div className="flex max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-P1 to-P2 shadow-lg dark:shadow-lg text-white font-semibold text-xl w-96 h-32 rounded-3xl">
               <div className="w-20 h-20 max-lg:w-[75px] max-lg:h-[75px] max-sm:w-[60px] max-sm:h-[60px] rounded-full bg-transparent border-4 border-white flex items-center justify-center">
                 <span>{taskProgress}%</span>
               </div>
@@ -206,7 +191,7 @@ function TasksViewPage() {
                 Monthly Task Progress
               </span>
             </div>
-            <div className="flex max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-O1 to-O2 shadow-lg text-white font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-3xl">
+            <div className="flex max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-O1 to-O2 shadow-lg text-white font-semibold text-xl w-96 h-32 rounded-3xl">
               <div className="w-20 h-20 max-lg:w-[75px] max-lg:h-[75px] max-sm:w-[60px] max-sm:h-[60px] rounded-full bg-transparent border-4 border-white flex items-center justify-center">
                 <span>{eventProgress}%</span>
               </div>
@@ -214,22 +199,20 @@ function TasksViewPage() {
                 Monthly Event Progress
               </span>
             </div>
-            <div className="flex max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-3xl">
+            <div className="flex max-lg:flex-row items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 rounded-3xl">
               <img className="w-14" src="/Fav.svg" alt="" />
               <span className="text-3xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
                 Favorite Tasks
               </span>
             </div>
           </div>
-          <div className="flex h-full w-full gap-10 max-lg:gap-5">
-            <div className="flex flex-col px-20 py-10 justify-center gap-5 w-[50dvw] rounded-3xl">
-              <h3 className="text-primary2 font-highlighted text-2xl max-sm:text-lg">
-                Tasks
-              </h3>
+          <div className="flex h-full w-full gap-10 px-20">
+            <div className="flex flex-col justify-center gap-5 w-[50dvw] rounded-3xl">
+              <h3 className="text-primary2 font-highlighted text-2xl">Tasks</h3>
               {filteredTasks.map((task) => (
                 <div
                   key={task.id}
-                  className="flex gap-3 items-center justify-between text-xl bg-ltf2 dark:bg-glass_dark py-2 px-8 rounded-lg"
+                  className="flex items-center justify-between text-xl bg-ltf2 dark:bg-glass_dark py-2 px-8 rounded-lg"
                 >
                   <input
                     className="h-4 w-4 outline-2 outline-primary2"
@@ -246,7 +229,7 @@ function TasksViewPage() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-col px-20 justify-center gap-5 w-[50dvw] rounded-3xl">
+            <div className="flex flex-col justify-center gap-5 w-[50dvw] rounded-3xl">
               <h3 className="text-primary1 font-highlighted text-2xl max-sm:text-lg">
                 Events
               </h3>

@@ -78,7 +78,7 @@ const Profile = () => {
             />
           </label>
         </div>
-        <div className="flex flex-col gap-5 rounded-xl bg-glass_light dark:bg-dtf shadow-2xl p-10 max-[1280px]:w-[500px] max-lg:w-[400px] max-md:w-[400px] w-[600px]">
+        <div className="flex flex-col gap-5 rounded-xl bg-ltf2 dark:bg-dtf shadow-2xl p-10 max-[1280px]:w-[500px] max-lg:w-[400px] max-md:w-[400px] w-[600px]">
           {(showSuccessMessage || loggedOut) && (
             <div className="bg-green-600 text-white p-3 mb-4 rounded-md text-center">
               {showSuccessMessage
@@ -92,7 +92,7 @@ const Profile = () => {
                 Name
               </label>
               <input
-                className="bg-glass_light dark:bg-dtb  border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
+                className="bg-ltb dark:bg-dtb  border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
                 type="text"
                 value={profile.name}
                 onChange={(e) => handleChange("name", e.target.value)}
@@ -103,7 +103,7 @@ const Profile = () => {
                 Email
               </label>
               <input
-                className="bg-glass_light dark:bg-dtb border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
+                className="bg-ltb dark:bg-dtb border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
                 type="email"
                 value={profile.email}
                 onChange={(e) => handleChange("email", e.target.value)}
@@ -114,7 +114,7 @@ const Profile = () => {
                 Phone
               </label>
               <input
-                className="bg-glass_light dark:bg-dtb border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
+                className="bg-ltb dark:bg-dtb border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
                 type="text"
                 value={profile.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
@@ -127,7 +127,7 @@ const Profile = () => {
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
-                className="bg-glass_light dark:bg-dtb border-none w-full max-md:w-full text-sm text-black dark:text-white pl-5 py-2 rounded-md"
+                className="bg-ltb dark:bg-dtb border-none w-full max-md:w-full text-sm text-black dark:text-white pl-5 py-2 rounded-md"
                 dateFormat="dd/MM/yyyy"
               />
             </div>
@@ -136,7 +136,7 @@ const Profile = () => {
                 Password
               </label>
               <input
-                className="bg-glass_light dark:bg-dtb border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
+                className="bg-ltb dark:bg-dtb border-none text-sm text-black dark:text-white pl-5 py-2 rounded-md w-full"
                 type={showPassword ? "text" : "password"}
                 value={profile.password}
                 onChange={(e) => handleChange("password", e.target.value)}

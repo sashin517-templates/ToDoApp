@@ -5,6 +5,7 @@ import LoginPage from "./Pages/LoginPage.jsx";
 import Profile from "./Pages/ProfilePage.jsx";
 import RegisterPage from "./Pages/RegisterPage.jsx";
 import TasksViewPage from "./Pages/TasksViewPage.jsx";
+import TaskAddPage from "./Pages/TaskAddPage.jsx";
 import LandingPage from "./Pages/LandingPage.jsx";
 import FloatingNav from "./Components/FloatingNav.jsx";
 import CalendarPage from "./Pages/CalendarPage.jsx";
@@ -48,6 +49,24 @@ function App() {
             element={
               <>
                 <FloatingNav /> <TasksViewPage />
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <FloatingNav />
+                <Profile />
+              </>
+            }
+          />
+          <Route
+            path="/task-add"
+            element={
+              <>
+                <FloatingNav />
+                <TaskAddPage />
               </>
             }
           />

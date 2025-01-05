@@ -23,9 +23,13 @@ function DateSection() {
   return (
     <div
       id="date"
-      className="flex flex-col gap-y-4 justify-center items-center font-montserrat text-xl font-medium w-96 h-64 rounded-xl dark:font-semibold bg-custom-gradient-2 text-white"
+      className="flex flex-col justify-evenly items-center font-montserrat text-2xl font-medium w-96 h-64 rounded-xl dark:font-semibold bg-custom-gradient-2 text-white"
     >
-      <img src={DateIcon} alt="date-icon" className="fill-dtb text-white h-14 mr-2" />
+      <img
+        src={DateIcon}
+        alt="date-icon"
+        className="fill-transparent text-white h-24"
+      />
       <div>{date}</div>
     </div>
   );
