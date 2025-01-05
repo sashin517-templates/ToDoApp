@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import DateSection from '../Components/DateSection';
+import TimeSection from '../Components/TimeSection';
 
 function LandingPage() {
   const [tasks, setTasks] = useState([
@@ -155,8 +157,8 @@ function LandingPage() {
 
   return (
     <div className="flex items-center justify-center h-dvh">
-      <div className="grid grid-cols-3 gap-10 justify-center items-center">
-        <div className="flex items-center justify-evenly bg-gradient-to-r from-P1 to-P2 shadow-lg dark:shadow-lg text-white font-semibold text-xl w-96 h-64 rounded-3xl">
+      <div className="flex flex-wrap justify-evenly gap-y-5 mt-20 px-36">
+        <div className="flex items-center justify-evenly bg-gradient-to-r from-P1 to-P2 shadow-lg dark:shadow-lg text-white font-semibold text-xl w-96 h-64 rounded-xl">
           <div className="w-20 h-20 rounded-full bg-transparent border-4 border-white flex items-center justify-center">
             <span>{taskProgress}%</span>
           </div>
@@ -164,7 +166,7 @@ function LandingPage() {
             Monthly Task Progress
           </span>
         </div>
-        <div className="flex  items-center justify-evenly bg-gradient-to-r from-O1 to-O2 shadow-lg text-white font-semibold text-xl w-96 h-64 rounded-3xl">
+        <div className="flex  items-center justify-evenly bg-gradient-to-r from-O1 to-O2 shadow-lg text-white font-semibold text-xl w-96 h-64 rounded-xl">
           <div className="w-20 h-20 rounded-full bg-transparent border-4 border-white flex items-center justify-center">
             <span>{eventProgress}%</span>
           </div>
@@ -172,27 +174,29 @@ function LandingPage() {
             Monthly Event Progress
           </span>
         </div>
-        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-3xl">
+        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-xl">
           <img className="w-14" src="/Fav.svg" alt="" />
-          <span className="text-3xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
+          <span className="text-rounded-xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
             Favorite Tasks
           </span>
         </div>
-        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-3xl">
+        <DateSection/>
+        <TimeSection/>
+        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-xl">
           <img className="w-14" src="/Fav.svg" alt="" />
-          <span className="text-3xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
+          <span className="text-rounded-xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
             Favorite Tasks
           </span>
         </div>
-        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-3xl">
+        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-xl">
           <img className="w-14" src="/Fav.svg" alt="" />
-          <span className="text-3xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
+          <span className="text-rounded-xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
             Favorite Tasks
           </span>
         </div>
-        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-3xl">
+        <div className="flex items-center justify-evenly bg-gradient-to-r from-P3 to-P4 shadow-lg text-black font-semibold text-xl w-96 h-32 max-sm:h-[100px] rounded-xl">
           <img className="w-14" src="/Fav.svg" alt="" />
-          <span className="text-3xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
+          <span className="text-rounded-xl text-white font-highlighted max-lg:text-xl max-sm:text-sm">
             Favorite Tasks
           </span>
         </div>
