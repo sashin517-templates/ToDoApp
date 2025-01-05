@@ -1,10 +1,9 @@
 import React from 'react'
-import NaviBar from '../Components/NaviBar'
 import LoginCard from '../Components/LoginCard'
 
 function LandingPage() {
   return (
-    <div className="flex flex-col justify-center items-center h-[100dvh] dark:bg-dtb bg-login-bg bg-cover">      
+    <div className="flex flex-col justify-center items-center bg-[url('../../public/Sign_In_V2.svg')] bg-cover bg-center h-screen">      
       <LoginCard />
     </div>
   )
