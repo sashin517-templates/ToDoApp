@@ -70,8 +70,8 @@ jobs:
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-      outputs:
-        image: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}
+        echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
+
 
     - name: Check Build Image & Setup Rendering Config
       id: task-def
