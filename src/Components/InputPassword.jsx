@@ -1,6 +1,5 @@
-
 import React from "react";
-import Lock from "/Lock copy.png";
+import Lock from "/Lock.svg";
 
 function InputPassword() {
   return (

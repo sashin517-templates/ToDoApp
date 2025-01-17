@@ -18,7 +18,7 @@ export default {
       ltb: "#F8FAFC",
       dtb: "#090516",
       ltf: "#EDE6FF",
-      ltf2: "#efebfc",
+      ltf2: "#EBEEF2",
       dtf: "#151B23",
       blendPurple: "rgba(54, 194, 206, 0.39)",
       lightBlendPurple: " rgba(255, 255, 255, 0.43)",
