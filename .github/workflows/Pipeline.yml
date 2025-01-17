@@ -62,6 +62,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v2
 
     - name: Build, tag, and push docker image to Amazon ECR
+      id: build-image
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         REPOSITORY: aura-app
@@ -69,6 +70,8 @@ jobs:
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+      outputs:
+        image: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}:${{ env.IMAGE_TAG }}
 
     - name: Check Build Image & Setup Rendering Config
       id: task-def
