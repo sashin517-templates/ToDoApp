@@ -72,7 +72,7 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
     
-        - name: Generate Task Definition
+    - name: Generate Task Definition
       run: |
         cat <<EOT > my-task-def.json
         {
