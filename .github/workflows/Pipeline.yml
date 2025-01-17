@@ -67,16 +67,17 @@ jobs:
         REPOSITORY: aura-app
         IMAGE_TAG: latest
       run: |
-        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
-        docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        docker build -t aura-app:latest .
+        docker tag aura-app:latest ${{secrets.AWS_ACCESS_KEY_ID}}.dkr.ecr.${{env.AWS_REGION}}.amazonaws.com/aura-app:latest
+        docker push ${{secrets.AWS_ACCESS_KEY_ID}}.dkr.ecr.${{env.AWS_REGION}}.amazonaws.com/my-image:latest
 
-    - name: Check Build Image & Setup Rendering Config
-      id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
-      with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
+    # - name: Check Build Image & Setup Rendering Config
+    #   id: task-def
+    #   uses: aws-actions/amazon-ecs-render-task-definition@v1
+    #   with:
+    #     task-definition: ${{ env.ECS_TASK_DEFINITION }}
+    #     container-name: ${{ env.CONTAINER_NAME }}
+    #     image: ${{ steps.build-image.outputs.image }}
 
     - name: Deployment Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
