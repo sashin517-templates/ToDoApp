@@ -14,50 +14,50 @@ The Task Manager & To-do List application is designed to help users better manag
 
 1. **User Authentication**
 
-    - Secure login and registration using OAuth, JWT, or custom authentication mechanisms.
-    - Password recovery and account management.
+   - Secure login and registration using OAuth, JWT, or custom authentication mechanisms.
+   - Password recovery and account management.
 
 2. **Task Management**
 
-    - Create, update, delete, and mark tasks as complete.
-    - Assign due dates and priorities to tasks.
-    - Categorize tasks with tags or folders.
+   - Create, update, delete, and mark tasks as complete.
+   - Assign due dates and priorities to tasks.
+   - Categorize tasks with tags or folders.
 
 3. **Collaboration**
 
-    - Share tasks or lists with other users.
-    - Assign tasks to specific team members.
-    - Real-time updates for shared lists.
+   - Share tasks or lists with other users.
+   - Assign tasks to specific team members.
+   - Real-time updates for shared lists.
 
 4. **Notifications and Reminders**
 
-    - Email or push notifications for upcoming deadlines.
-    - Customizable reminders.
+   - Email or push notifications for upcoming deadlines.
+   - Customizable reminders.
 
 5. **Search and Filters**
 
-    - Search bar for finding specific tasks.
-    - Filters for priority, category, or completion status.
+   - Search bar for finding specific tasks.
+   - Filters for priority, category, or completion status.
 
 6. **Dashboard**
 
-    - Overview of tasks by status (e.g., Pending, In Progress, Completed).
-    - Summary of upcoming tasks and deadlines.
+   - Overview of tasks by status (e.g., Pending, In Progress, Completed).
+   - Summary of upcoming tasks and deadlines.
 
 7. **Progress Tracking**
 
-    - Task completion statistics.
-    - Visual progress indicators like graphs or charts.
+   - Task completion statistics.
+   - Visual progress indicators like graphs or charts.
 
 8. **Offline Mode**
 
-    - Allow users to manage tasks without internet connectivity.
-    - Sync data when back online.
+   - Allow users to manage tasks without internet connectivity.
+   - Sync data when back online.
 
 9. **Integration**
 
-    - API support for third-party integrations (e.g., calendars, email, or Slack).
-    - Export tasks to CSV or other formats.
+   - API support for third-party integrations (e.g., calendars, email, or Slack).
+   - Export tasks to CSV or other formats.
 
 10. **Responsive Design**
 
@@ -67,16 +67,16 @@ The Task Manager & To-do List application is designed to help users better manag
 
 1. **Docker Containerization**
 
-    - Isolate services for authentication, task management, and notifications.
-    - CI/CD Pipelines Automate testing, building, and deployment of the application.
+   - Isolate services for authentication, task management, and notifications.
+   - CI/CD Pipelines Automate testing, building, and deployment of the application.
 
 2. **NGINX Load Balancing**
 
-    - Distribute traffic efficiently across multiple servers.
+   - Distribute traffic efficiently across multiple servers.
 
 3. **Kubernetes Deployment**
 
-    - Deploy the application on Kubernetes (e.g., Minikube) for scalability and reliability.
+   - Deploy the application on Kubernetes (e.g., Minikube) for scalability and reliability.
 
 ---
 
@@ -86,27 +86,27 @@ The Task Manager & To-do List application is designed to help users better manag
 
 1. **Clone the git repository.**
 
-    ```bash
-    git clone https://github.com/Sashin517/ToDoApp.git
-    ```
+   ```bash
+   git clone https://github.com/Sashin517/ToDoApp.git
+   ```
 
 2. **Set the file directory.**
 
-    ```bash
-    cd Your-File-Directory
-    ```
+   ```bash
+   cd Your-File-Directory
+   ```
 
 3. **Install the Node Module in file directory.**
 
-    ```bash
-    npm install 
-    ```
+   ```bash
+   npm install
+   ```
 
 4. **Run the Application following Code:**
 
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
 5. **Congradulation, You will deploy the application in `localhost:5173`.**
 
@@ -114,47 +114,47 @@ The Task Manager & To-do List application is designed to help users better manag
 
 1. **Select the file Directory, Then Open the Terminal Run the Following Command:**
 
-     ```bash
-     cd Your-file-location
-     cd TODOAPP
-     ```
+   ```bash
+   cd Your-file-location
+   cd TODOAPP
+   ```
 
 2. **Create the Build the Front-End Dockerfile in Terminal:**
 
-    ```bash
-    docker build -t todo-front-app .
-    ```
+   ```bash
+   docker build -t todo-front-app .
+   ```
 
 3. **Run the Builded Front-End Dockerfile in Terminal:**
 
-    ```bash
-    docker run -todo-frond
-    ```
+   ```bash
+   docker run -todo-frond
+   ```
 
 ### Kubernates Deployment
 
 1. **Select the file Directory, Then Open the Terminal Run the Following Command:**
 
-     ```bash
-     cd Your-file-location
-     cd TODOAPP
-     ```
+   ```bash
+   cd Your-file-location
+   cd TODOAPP
+   ```
 
 2. **Start the kubernates service in local computer:**
 
-    ```bash
-    minikube start
-    ```
+   ```bash
+   minikube start
+   ```
 
 3. **After, Deploy the `deployment.yaml` file using this command:**
 
-    ```bash
-    kubectl apply -f deployment.yaml
-    ```
+   ```bash
+   kubectl apply -f deployment.yaml
+   ```
 
 4. **Enter the this `localhost:5173` your browser linkbar**
 
-    *Click this link*  [https://localhost:5173](https://localhost:5173)
+   _Click this link_ [https://localhost:5173](https://localhost:5173)
 
 5. **Boom, Your Application Deploying in Kubernates in Successfully.**
 
