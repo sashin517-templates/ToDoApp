@@ -46,7 +46,8 @@ jobs:
     environment: production
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Check Repository
+      uses: actions/checkout@v4
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -58,17 +59,18 @@ jobs:
     - name: Login Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
+      with:
+        mask-password: 'true'
 
     - name: Build & Push Docker Image to Amazon ECR
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
+        REPOSITORY: aura-app
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
-        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+        docker build -t aura-app .
+        docker push aura-app:latest
+        echo "push aura-app:latest" >> $GITHUB_OUTPUT
 
     - name: Check Build Image & Setup Rendering Config
       id: task-def
