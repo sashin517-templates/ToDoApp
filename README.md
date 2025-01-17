@@ -181,7 +181,3 @@ The Task Manager & To-do List application is designed to help users better manag
 - Methara
 - Adsaya
 - Lahiru Dilshan
-
-edhsoihdosha
-ajhjkasd
-gjhdfa
