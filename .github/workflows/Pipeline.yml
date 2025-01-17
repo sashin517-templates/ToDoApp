@@ -11,7 +11,6 @@ env:
   ECS_TASK_DEFINITION: my-task-def
   CONTAINER_NAME: my-container
   ECS_SERVICE: my-service
-  ECS_CLUSTER: my-cluster
 
 jobs:
   build:
@@ -102,5 +101,4 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ${{ env.ECS_SERVICE }}
-        cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
