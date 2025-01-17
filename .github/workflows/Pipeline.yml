@@ -71,13 +71,29 @@ jobs:
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
-
+    
+        - name: Generate Task Definition
+      run: |
+        cat <<EOT > my-task-def.json
+        {
+          "family": "my-task-def",
+          "containerDefinitions": [
+            {
+              "name": "my-container",
+              "image": "${{ steps.build-image.outputs.image }}",
+              "memory": 512,
+              "cpu": 256,
+              "essential": true
+            }
+          ]
+        }
+        EOT
 
     - name: Check Build Image & Setup Rendering Config
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}
+        task-definition: my-task-def.json
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
