@@ -8,10 +8,10 @@ on:
 
 env:
   AWS_REGION: eu-north-1
-  ECS_TASK_DEFINITION: ecs-td-two
-  CONTAINER_NAME: aura-app
-  ECS_SERVICE: my-service
-  ECS_CLUSTER: my-cluster
+  ECS_TASK_DEFINITION: aura-node-task-def.json
+  CONTAINER_NAME: aura-node
+  ECS_SERVICE: aura-node-service
+  ECS_CLUSTER: auraCluster
 
 jobs:
   build:
@@ -60,6 +60,8 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
+      with:
+        mask-password: 'true'
 
     - name: Build, tag, and push docker image to Amazon ECR
       id: build-image
@@ -72,48 +74,11 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
-    - name: Generate Task Definition
-      run: |
-        cat <<EOT > ecs-td-two.json
-        {
-          "family": "ecs-td-two",
-          "containerDefinitions": [
-            {
-              "name": "aura-app",
-              "image": "${{ steps.build-image.outputs.image }}",
-              "cpu": 256,
-              "memory": 512,
-              "essential": true,
-              "portMappings": [
-                {
-                  "containerPort": 5173,
-                  "hostPort": 5173,
-                  "protocol": "tcp"
-                }
-              ],
-              "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                  "awslogs-group": "/ecs/ecs-td",
-                  "awslogs-region": "eu-north-1",
-                  "awslogs-stream-prefix": "ecs"
-                }
-              }
-            }
-          ],
-          "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-          "networkMode": "bridge",
-          "requiresCompatibilities": ["EC2"],
-          "cpu": "256",
-          "memory": "512"
-        }
-        EOT
-
     - name: Check Build Image & Setup Rendering Config
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ecs-td-two.json
+        task-definition: ${{env.ECS_TASK_DEFINITION}}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
