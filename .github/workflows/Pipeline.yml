@@ -71,7 +71,7 @@ jobs:
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
-    
+
     - name: Generate Task Definition
       run: |
         cat <<EOT > ecs-td-two.json
@@ -94,7 +94,7 @@ jobs:
               "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                  "awslogs-group": "/ecs/ecs-td-two",
+                  "awslogs-group": "/ecs/ecs-td",
                   "awslogs-region": "eu-north-1",
                   "awslogs-stream-prefix": "ecs"
                 }
