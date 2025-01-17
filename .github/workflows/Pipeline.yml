@@ -11,6 +11,7 @@ env:
   ECS_TASK_DEFINITION: ecs-td-two
   CONTAINER_NAME: aura-app
   ECS_SERVICE: my-service
+  ECS_CLUSTER: my-cluster
 
 jobs:
   build:
@@ -119,6 +120,7 @@ jobs:
     - name: Deployment Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
+        cluster: ${{ env.ECS_CLUSTER }}
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ${{ env.ECS_SERVICE }}
         wait-for-service-stability: true
