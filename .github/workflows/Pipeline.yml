@@ -74,18 +74,21 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
-    - name: Check Build Image & Setup Rendering Config
-      id: task-def
+    - name: Render Amazon ECS task definition
+      id: render-web-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{env.ECS_TASK_DEFINITION}}
-        container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
+        task-definition: aura-node-task-def.json
+        task-definition-arn:  arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def
+        task-definition-family: aura-node-task-def
+        container-name: aura-node
+        image: 242201288063.dkr.ecr.eu-north-1.amazonaws.com/aura-app:latest
+        environment-variables: "LOG_LEVEL=info"
 
     - name: Deployment Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        task-definition: ${{ steps.render-web-container.outputs.task-definition }}
         cluster: ${{ env.ECS_CLUSTER }}
         service: ${{ env.ECS_SERVICE }}
         wait-for-service-stability: true
