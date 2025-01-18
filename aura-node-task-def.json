@@ -27,37 +27,7 @@
   "family": "aura-node-task-def",
   "taskRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-  "requiresAttributes": [
-    {
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-    },
-    {
-      "name": "ecs.capability.execution-role-awslogs"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.task-iam-role"
-    },
-    {
-      "name": "ecs.capability.execution-role-ecr-pull"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
-    }
-  ],
   "compatibilities": "EC2",
-  "requiresCompatibilities": "EC2",
   "cpu": "1024",
   "memory": "5120",
   "runtimePlatform": {
