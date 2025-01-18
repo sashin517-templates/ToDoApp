@@ -74,16 +74,50 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
+    - name: Generate Task Definition
+      run: |
+          cat <<EOT > ecs-td-two.json
+          {
+            "family": "ecs-td-two",
+            "containerDefinitions": [
+              {
+                "name": "aura-app",
+                "image": "${{ steps.build-image.outputs.image }}",
+                "cpu": 256,
+                "memory": 512,
+                "essential": true,
+                "portMappings": [
+                  {
+                    "containerPort": 5173,
+                    "hostPort": 5173,
+                    "protocol": "tcp"
+                  }
+                ],
+                "logConfiguration": {
+                  "logDriver": "awslogs",
+                  "options": {
+                    "awslogs-group": "/ecs/ecs-td",
+                    "awslogs-region": "eu-north-1",
+                    "awslogs-stream-prefix": "ecs"
+                  }
+                }
+              }
+            ],
+            "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
+            "networkMode": "bridge",
+            "requiresCompatibilities": ["EC2"],
+            "cpu": "256",
+            "memory": "512"
+          }
+          EOT
+
     - name: Render Amazon ECS task definition
       id: render-web-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: aura-node-task-def.json
-        task-definition-arn:  arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def
-        task-definition-family: aura-node-task-def
+        task-definition: ecs-td-two.json
         container-name: aura-node
-        image: ${{steps.build-image.outputs.image}}
-        # environment-variables: "LOG_LEVEL=info"
+        image: ${{ steps.build-image.outputs.image }}
 
     # - name: Debug Outputs
     #   run: |
