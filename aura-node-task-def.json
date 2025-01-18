@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "aura-node",
-      "image": "${{ steps.build-image.outputs.IMAGE }}",
+      "image": "${{ steps.build-image.outputs.image }}",
       "essential": true,
       "portMappings": [
         {

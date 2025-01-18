@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: eu-north-1
   CONTAINER_NAME: aura-node
-  ECS_TASK_DEFINITION: .aws/aura-node-task-def.json
+  ECS_TASK_DEFINITION: aura-node-task-def.json
   ECS_SERVICE: aura-node-service
   ECS_CLUSTER: auraCluster
 
