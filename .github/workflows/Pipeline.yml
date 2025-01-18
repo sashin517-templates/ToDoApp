@@ -114,11 +114,11 @@ jobs:
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
-    # - name: Debug Outputs
-    #   run: |
-    #     echo "Task Definition: ${{ steps.render-web-container.outputs.task-definition }}"
-    #     echo "Cluster: ${{ env.ECS_CLUSTER }}"
-    #     echo "Service: ${{ env.ECS_SERVICE }}"
+    - name: Debug Outputs
+      run: |
+        echo "Task Definition: ${{ steps.render-web-container.outputs.task-definition }}"
+        echo "Cluster: ${{ env.ECS_CLUSTER }}"
+        echo "Service: ${{ env.ECS_SERVICE }}"
 
     - name: Deployment Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
