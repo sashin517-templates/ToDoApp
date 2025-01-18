@@ -8,8 +8,7 @@ on:
 
 env:
   AWS_REGION: eu-north-1
-  CONTAINER_NAME: aura-node
-  ECS_TASK_DEFINITION: aura-node-task-def.json
+  CONTAINER_NAME: aura-app
   ECS_SERVICE: aura-node-service
   ECS_CLUSTER: auraCluster
 
@@ -72,44 +71,46 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "image=$REGISTRY/$REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
-    # - name: Generate Task Definition
-    #   run: |
-    #       cat <<EOT > ecs-td-two.json
-    #       {
-    #         "family": "ecs-td-two",
-    #         "containerDefinitions": [
-    #           {
-    #             "name": "aura-app",
-    #             "image": "${{ steps.build-image.outputs.image }}",
-    #             "essential": true,
-    #             "portMappings": [
-    #               {
-    #                 "containerPort": 5173,
-    #                 "hostPort": 5173,
-    #                 "protocol": "tcp"
-    #               }
-    #             ],
-    #             "logConfiguration": {
-    #               "logDriver": "awslogs",
-    #               "options": {
-    #                 "awslogs-group": "/ecs/ecs-td",
-    #                 "awslogs-region": "eu-north-1",
-    #                 "awslogs-stream-prefix": "ecs"
-    #               }
-    #             }
-    #           }
-    #         ],
-    #         "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-    #         "networkMode": "bridge",
-    #         "requiresCompatibilities": ["EC2"],
-    #         "cpu": "256",
-    #         "memory": "512"
-    #       }
-    #       EOT
+    - name: Generate Task Definition
+      run: |
+          cat <<EOT > ecs-td-two.json
+          {
+            "family": "ecs-td-two",
+            "containerDefinitions": [
+              {
+                "name": "aura-app",
+                "image": "${{ steps.build-image.outputs.image }}",
+                "essential": true,
+                "portMappings": [
+                  {
+                    "containerPort": 5173,
+                    "hostPort": 5173,
+                    "protocol": "tcp"
+                  }
+                ],
+                "logConfiguration": {
+                  "logDriver": "awslogs",
+                  "options": {
+                    "awslogs-group": "/ecs/ecs-td",
+                    "awslogs-region": "eu-north-1",
+                    "awslogs-stream-prefix": "ecs"
+                  }
+                }
+              }
+            ],
+            "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
+            "networkMode": "bridge",
+            "requiresCompatibilities": ["EC2"],
+            "cpu": "256",
+            "memory": "512"
+          }
+          EOT
 
     - name: Render Amazon ECS task definition
       id: render-web-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
+      env:
+        ECS_TASK_DEFINITION: ecs-td-two.json
       with:
         task-definition: ${{env.ECS_TASK_DEFINITION}}
         container-name: ${{ env.CONTAINER_NAME }}
