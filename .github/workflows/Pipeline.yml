@@ -112,7 +112,7 @@ jobs:
       with:
         task-definition: aura-node-task-def.json
         container-name: ${{ env.CONTAINER_NAME }}
-        image: ${{ steps.build-image.outputs.image }}
+        image: ${{ steps.build-image.outputs.IMAGE }}
 
     - name: Debug Outputs
       run: |
