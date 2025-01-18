@@ -38,7 +38,6 @@
   "family": "aura-node-task-def",
   "taskRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-  "networkMode": "awsvpc",
   "volumes": [],
   "requiresAttributes": [
     {
