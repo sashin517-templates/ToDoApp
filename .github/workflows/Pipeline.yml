@@ -57,11 +57,44 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
 
+    # - name: Login to Amazon ECR
+    #   id: login-ecr
+    #   uses: aws-actions/amazon-ecr-login@v2
+    #   with:
+    #     mask-password: 'true'
+
+    # - name: Build, tag, and push docker image to Amazon ECR
+    #   id: build-image
+    #   env:
+    #     REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+    #     REPOSITORY: aura-app
+    #     IMAGE_TAG: latest
+    #   run: |
+    #     docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+    #     docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+    #     echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
+
+    # - name: Render Amazon ECS task definition
+    #   id: render-web-container
+    #   uses: aws-actions/amazon-ecs-render-task-definition@v1
+    #   with:
+    #     task-definition: aura-node-task-def.json
+    #     task-definition-arn:  arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def
+    #     task-definition-family: aura-node-task-def
+    #     container-name: aura-node
+    #     image: 242201288063.dkr.ecr.eu-north-1.amazonaws.com/aura-app:latest
+    #     environment-variables: "LOG_LEVEL=info"
+
+    # - name: Debug Outputs
+    #   run: |
+    #     echo "Task Definition: ${{ steps.render-web-container.outputs.task-definition }}"
+    #     echo "Cluster: ${{ env.ECS_CLUSTER }}"
+    #     echo "Service: ${{ env.ECS_SERVICE }}"
+
+
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
-      with:
-        mask-password: 'true'
 
     - name: Build, tag, and push docker image to Amazon ECR
       id: build-image
@@ -74,27 +107,55 @@ jobs:
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$REGISTRY/$REPOSITORY:$IMAGE_TAG"
 
-    - name: Render Amazon ECS task definition
-      id: render-web-container
+    - name: Generate Task Definition
+      run: |
+        cat <<EOT > ecs-td-two.json
+        {
+          "family": "ecs-td-two",
+          "containerDefinitions": [
+            {
+              "name": "aura-app",
+              "image": "${{ steps.build-image.outputs.image }}",
+              "cpu": 256,
+              "memory": 512,
+              "essential": true,
+              "portMappings": [
+                {
+                  "containerPort": 5173,
+                  "hostPort": 5173,
+                  "protocol": "tcp"
+                }
+              ],
+              "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                  "awslogs-group": "/ecs/ecs-td",
+                  "awslogs-region": "eu-north-1",
+                  "awslogs-stream-prefix": "ecs"
+                }
+              }
+            }
+          ],
+          "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
+          "networkMode": "bridge",
+          "requiresCompatibilities": ["EC2"],
+          "cpu": "256",
+          "memory": "512"
+        }
+        EOT
+
+    - name: Check Build Image & Setup Rendering Config
+      id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: aura-node-task-def.json
-        task-definition-arn:  arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def
-        task-definition-family: aura-node-task-def
-        container-name: aura-node
-        image: 242201288063.dkr.ecr.eu-north-1.amazonaws.com/aura-app:latest
-        environment-variables: "LOG_LEVEL=info"
-
-    - name: Debug Outputs
-      run: |
-        echo "Task Definition: ${{ steps.render-web-container.outputs.task-definition }}"
-        echo "Cluster: ${{ env.ECS_CLUSTER }}"
-        echo "Service: ${{ env.ECS_SERVICE }}"
+        task-definition: ecs-td-two.json
+        container-name: ${{ env.CONTAINER_NAME }}
+        image: ${{ steps.build-image.outputs.image }}
 
     - name: Deployment Amazon ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
-        task-definition: ${{ steps.render-web-container.outputs.task-definition }}
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
         cluster: ${{ env.ECS_CLUSTER }}
         service: ${{ env.ECS_SERVICE }}
         wait-for-service-stability: true
