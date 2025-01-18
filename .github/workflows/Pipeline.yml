@@ -91,10 +91,10 @@ jobs:
         echo "Cluster: ${{ env.ECS_CLUSTER }}"
         echo "Service: ${{ env.ECS_SERVICE }}"
 
-    # - name: Deployment Amazon ECS
-    #   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-    #   with:
-    #     task-definition: ${{ steps.render-web-container.outputs.task-definition }}
-    #     cluster: ${{ env.ECS_CLUSTER }}
-    #     service: ${{ env.ECS_SERVICE }}
-    #     wait-for-service-stability: true
+    - name: Deployment Amazon ECS
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ${{ steps.render-web-container.outputs.task-definition }}
+        cluster: ${{ env.ECS_CLUSTER }}
+        service: ${{ env.ECS_SERVICE }}
+        wait-for-service-stability: true
