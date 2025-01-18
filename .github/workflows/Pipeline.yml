@@ -116,7 +116,7 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: ecs-td-two.json
-        container-name: aura-node
+        container-name: aura-app
         image: ${{ steps.build-image.outputs.image }}
 
     # - name: Debug Outputs
