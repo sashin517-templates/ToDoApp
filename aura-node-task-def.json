@@ -3,8 +3,8 @@
   "containerDefinitions": [
     {
       "name": "aura-node",
-      "image": "242201288063.dkr.ecr.eu-north-1.amazonaws.com/aura-app:latest",
-      "cpu": 0,
+      "image": "${{ steps.build-image.outputs.image }}",
+      "essential": true,
       "portMappings": [
         {
           "name": "aura-node-5000-tcp",
@@ -14,31 +14,19 @@
           "appProtocol": "http"
         }
       ],
-      "essential": true,
-      "environment": [],
-      "environmentFiles": [],
-      "mountPoints": [],
-      "volumesFrom": [],
-      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/aura-node-task-def",
-          "mode": "non-blocking",
-          "awslogs-create-group": "true",
-          "max-buffer-size": "25m",
           "awslogs-region": "eu-north-1",
           "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
-      },
-      "systemControls": []
+        }
+      }
     }
   ],
   "family": "aura-node-task-def",
   "taskRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
   "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-  "volumes": [],
   "requiresAttributes": [
     {
       "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -68,14 +56,12 @@
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
     }
   ],
-  "placementConstraints": [],
-  "compatibilities": ["EC2"],
-  "requiresCompatibilities": ["EC2"],
+  "compatibilities": "EC2",
+  "requiresCompatibilities": "EC2",
   "cpu": "1024",
   "memory": "5120",
   "runtimePlatform": {
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
-  },
-  "tags": []
+  }
 }
