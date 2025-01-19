@@ -119,7 +119,6 @@ jobs:
               "networkMode": "awsvpc",
               "revision": 14,
               "volumes": [],
-              "status": "ACTIVE",
               "requiresAttributes": [
                   {
                       "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
@@ -168,12 +167,11 @@ jobs:
               },
               "registeredAt": "2025-01-19T10:14:03.777Z",
               "registeredBy": "arn:aws:iam::242201288063:root",
-              "enableFaultInjection": false,
               "tags": []
           }
 
-
           EOT
+
 
     - name: Render Amazon ECS task definition
       id: render-web-container
