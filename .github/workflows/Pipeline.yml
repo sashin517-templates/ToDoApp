@@ -76,7 +76,7 @@ jobs:
 
     - name: Render Amazon ECS task definition
       id: render-web-container
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      uses: aws-actions/amazon-ecs-render-task-definition@v2
       env:
         ECS_TASK_DEFINITION: au-node-task-def.json
       with:
