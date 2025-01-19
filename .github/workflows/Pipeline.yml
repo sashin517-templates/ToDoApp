@@ -9,8 +9,8 @@ on:
 env:
   AWS_REGION: eu-north-1
   CONTAINER_NAME: aura-app
-  ECS_SERVICE: a-u-node-service
-  ECS_CLUSTER: AuCluster
+  ECS_SERVICE: au-node-service
+  ECS_CLUSTER: AuraCluster
 
 jobs:
   build:
