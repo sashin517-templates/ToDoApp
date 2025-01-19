@@ -1,10 +1,10 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:242201288063:task-definition/au-node-task-def:1",
+    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def:16",
     "containerDefinitions": [
         {
             "name": "aura-app",
-            "image": "242201288063.dkr.ecr.eu-north-1.amazonaws.com/aura-app:latest",
-            "cpu": 256,  
+            "image": "242201288063.dkr.ecr.eu-north-1.amazonaws.com/aura-app",
+            "cpu": 256,
             "memory": 512,
             "portMappings": [
                 {
@@ -24,7 +24,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/au-node-task-def",
+                    "awslogs-group": "/ecs/aura-node-task-def",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -36,11 +36,11 @@
             "systemControls": []
         }
     ],
-    "family": "au-node-task-def",
+    "family": "aura-node-task-def",
     "taskRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 16,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -81,17 +81,16 @@
         "FARGATE"
     ],
     "requiresCompatibilities": [
-        "FARGATE"
+        "EC2"
     ],
-    "cpu": "256",  
-    "memory": "512",  
+    "cpu": "256",
+    "memory": "512",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-01-19T11:01:34.863Z",
+    "registeredAt": "2025-01-19T17:33:59.490Z",
     "registeredBy": "arn:aws:iam::242201288063:root",
     "enableFaultInjection": false,
     "tags": []
-  }
-  
+}

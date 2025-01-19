@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: eu-north-1
   CONTAINER_NAME: aura-app
-  ECS_SERVICE: a-u-node-service
+  ECS_SERVICE: aura-node-service
   ECS_CLUSTER: AuCluster
 
 jobs:
@@ -78,7 +78,7 @@ jobs:
       id: render-web-container
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       env:
-        ECS_TASK_DEFINITION: au-node-task-def.json
+        ECS_TASK_DEFINITION: aura-node-task-def.json
       with:
         task-definition: ${{env.ECS_TASK_DEFINITION}}
         container-name: ${{ env.CONTAINER_NAME }}
