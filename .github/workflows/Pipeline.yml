@@ -66,7 +66,7 @@ jobs:
       id: build-image
       env:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        REPOSITORY: aura-app
+        REPOSITORY: au-app
         IMAGE_TAG: latest
       run: |
         docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
