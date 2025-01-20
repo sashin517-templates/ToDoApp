@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Expose port 3000 to be accessible outside the container
-EXPOSE 80
+EXPOSE 5000
 
 # Serve the built React application using a simple static file server
 CMD ["npm", "run", "dev"]
