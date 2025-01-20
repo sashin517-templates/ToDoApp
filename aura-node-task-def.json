@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:337909764343:task-definition/aura-node-task-def:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:337909764343:task-definition/aura-node-task-def:3",
     "containerDefinitions": [
         {
             "name": "au-app",
-            "image": "337909764343.dkr.ecr.ap-southeast-1.amazonaws.com/au-app",
+            "image": "337909764343.dkr.ecr.ap-southeast-1.amazonaws.com/au-app:latest",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
@@ -17,10 +17,8 @@
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -37,8 +35,9 @@
         }
     ],
     "family": "aura-node-task-def",
+    "taskRoleArn": "arn:aws:iam::337909764343:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::337909764343:role/ecsTaskExecutionRole",
-    "revision": 1,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -58,10 +57,10 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
         },
         {
-            "name": "ecs.capability.execution-role-ecr-pull"
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
@@ -80,7 +79,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-01-20T13:31:35.918Z",
+    "registeredAt": "2025-01-20T14:00:26.555Z",
     "registeredBy": "arn:aws:iam::337909764343:root",
     "enableFaultInjection": false,
     "tags": []
