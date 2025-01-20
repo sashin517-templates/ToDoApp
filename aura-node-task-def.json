@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def:18",
+    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def:20",
     "containerDefinitions": [
         {
             "name": "aura-app",
@@ -8,6 +8,7 @@
             "memory": 512,
             "portMappings": [
                 {
+                    "name": "5000",
                     "containerPort": 5000,
                     "hostPort": 80,
                     "protocol": "tcp",
@@ -36,8 +37,8 @@
     "family": "aura-node-task-def",
     "taskRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-    "networkMode": "awsvpc",
-    "revision": 18,
+    "networkMode": "bridge",
+    "revision": 20,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -63,19 +64,12 @@
             "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-        },
-        {
-            "name": "ecs.capability.task-eni"
-        },
-        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
     "compatibilities": [
-        "EC2",
-        "FARGATE"
+        "EC2"
     ],
     "requiresCompatibilities": [
         "EC2"
@@ -86,7 +80,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-01-20T03:55:31.821Z",
+    "registeredAt": "2025-01-20T05:57:31.704Z",
     "registeredBy": "arn:aws:iam::242201288063:root",
     "enableFaultInjection": false,
     "tags": []
