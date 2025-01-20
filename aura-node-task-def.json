@@ -1,24 +1,26 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:eu-north-1:242201288063:task-definition/aura-node-task-def:20",
+    "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:337909764343:task-definition/aura-node-task-def:1",
     "containerDefinitions": [
         {
-            "name": "aura-app",
-            "image": "242201288063.dkr.ecr.eu-north-1.amazonaws.com/aura-app:latest",
+            "name": "au-app",
+            "image": "337909764343.dkr.ecr.ap-southeast-1.amazonaws.com/au-app",
             "cpu": 256,
             "memory": 512,
             "portMappings": [
                 {
-                    "name": "5000",
+                    "name": "au-app-5000-tcp",
                     "containerPort": 5000,
-                    "hostPort": 80,
+                    "hostPort": 5000,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
             "volumesFrom": [],
+            "ulimits": [],
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
@@ -26,7 +28,7 @@
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
-                    "awslogs-region": "eu-north-1",
+                    "awslogs-region": "ap-southeast-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
@@ -35,10 +37,8 @@
         }
     ],
     "family": "aura-node-task-def",
-    "taskRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::242201288063:role/ecsTaskExecutionRole",
-    "networkMode": "bridge",
-    "revision": 20,
+    "executionRoleArn": "arn:aws:iam::337909764343:role/ecsTaskExecutionRole",
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -58,10 +58,10 @@
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
         },
         {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
-            "name": "ecs.capability.execution-role-ecr-pull"
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
@@ -80,8 +80,8 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-01-20T05:57:31.704Z",
-    "registeredBy": "arn:aws:iam::242201288063:root",
+    "registeredAt": "2025-01-20T13:31:35.918Z",
+    "registeredBy": "arn:aws:iam::337909764343:root",
     "enableFaultInjection": false,
     "tags": []
 }
