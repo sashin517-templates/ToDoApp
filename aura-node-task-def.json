@@ -8,9 +8,8 @@
             "memory": 512,
             "portMappings": [
                 {
-                    "name": "5000",
                     "containerPort": 5000,
-                    "hostPort": 5000,
+                    "hostPort": 80,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
